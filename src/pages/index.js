@@ -6,6 +6,7 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 
 import {Grommet, Box, Heading, Text, Table, TableHeader, TableBody, TableCell, TableRow} from 'grommet'
+import Theme from '../components/theme';
 
 const index = [
   {
@@ -45,25 +46,58 @@ const index = [
   }
 ]
 
+const PaddedContainer = ({children}) => (
+  <Box pad={{left:'medium', right:'medium'}}>
+    {children}
+  </Box>
+)
+
+const Logo = () => (
+  <Box pad={{left:'medium', right:'medium', top:'medium'}}>
+    <Heading level={3}> denntenna </Heading>
+  </Box>
+)
+
+const TableHeading = ({label}) => (
+  <PaddedContainer>
+    <Heading level={3}> {label} </Heading>
+  </PaddedContainer>
+)
+
+const TableItem = ({label}) => (
+  <PaddedContainer>
+    <Text size={'medium'}> {label} </Text>
+  </PaddedContainer>
+)
+
+const TableLink = ({target, label}) => (
+  <PaddedContainer>
+    <Link to={`/${target}`}>
+      <Text size={'medium'}> {label} </Text> 
+    </Link>
+  </PaddedContainer>
+)
+
 const IndexPage = () => (
-  <Grommet full>
+  <Grommet theme={Theme} full>
     <SEO title="Home" />
 
-    <Heading level={3}>denntenna </Heading>
+    <Logo/>
+    
     <Table>
       <TableHeader>
         <TableRow>
           <TableCell scope='col' border='bottom'>
-            <Heading level={2}> Date </Heading>
+            <TableHeading label={'Date'}/>
           </TableCell>
           <TableCell scope='col' border='bottom'>
-            <Heading level={2}> Title </Heading>
+            <TableHeading label={'Title'}/>
           </TableCell>
           <TableCell scope='col' border='bottom'>
-            <Heading level={2}> Description </Heading>
+            <TableHeading label={'Description'}/>
           </TableCell>
           <TableCell scope='col' border='bottom'>
-            <Heading level={2}> Tags </Heading>
+            <TableHeading label={'Tags'}/>
           </TableCell>
         </TableRow>
       </TableHeader>
@@ -73,14 +107,21 @@ const IndexPage = () => (
         {
           index.map((item, index) => (
               <TableRow key={index}>
-                <TableCell scope='row'> <Text size={'medium'}> {item.date} </Text> </TableCell>
                 <TableCell scope='row'> 
-                  <Link to={`/${item.target}`}>
-                    <Text size={'medium'}> {item.title} </Text> 
-                  </Link>
+                  <TableItem label={item.date} /> 
                 </TableCell>
-                <TableCell scope='row'> <Text size={'medium'}> {item.description} </Text> </TableCell>
-                <TableCell scope='row'> <Text size={'medium'}> {item.tags} </Text> </TableCell>
+                <TableCell scope='row'> 
+                  <TableLink 
+                    target={`/${item.target}`}
+                    label={item.title}
+                  />
+                </TableCell>
+                <TableCell scope='row'> 
+                  <TableItem label={item.description} /> 
+                </TableCell>
+                <TableCell scope='row'> 
+                  <TableItem label={item.tags} /> 
+                </TableCell>
               </TableRow>
           ))
         }
