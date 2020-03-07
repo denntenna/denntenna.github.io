@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 
 import {Grommet, Box, Heading, Text, Table, TableHeader, TableBody, TableCell, TableRow} from 'grommet'
 import Theme from '../components/theme';
+import Logo from '../components/logo';
 
 const index = [
   {
@@ -14,7 +15,7 @@ const index = [
     title: 'Genesis',
     description: 'Mauris ac dui ac ipsum egestas placerat. Fusce laoreet imperdiet sem. Praesent sit amet sapien at mi luctus maximus. Ut vel luctus justo.',
     tags: 'abc, def, ghi, jkl',
-    target: '/genesis'
+    target: '/notes/pehla'
   },
   {
     date:'02.06.1990',
@@ -52,11 +53,6 @@ const PaddedContainer = ({children}) => (
   </Box>
 )
 
-const Logo = () => (
-  <Box pad={{left:'medium', right:'medium', top:'medium'}}>
-    <Heading level={3}> denntenna </Heading>
-  </Box>
-)
 
 const TableHeading = ({label}) => (
   <PaddedContainer>
