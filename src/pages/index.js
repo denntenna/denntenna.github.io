@@ -5,42 +5,15 @@ import SEO from "../components/seo"
 import {Grommet, Box, Heading, Text, Table, TableHeader, TableBody, TableCell, TableRow} from 'grommet'
 import Theme from '../components/theme';
 import Logo from '../components/logo';
+import { PlainExternalLink } from '../components/Links';
 
 const index = [
   {
-    date:'02.06.1990',
-    title: 'Genesis',
-    description: 'Mauris ac dui ac ipsum egestas placerat. Fusce laoreet imperdiet sem. Praesent sit amet sapien at mi luctus maximus. Ut vel luctus justo.',
-    tags: 'abc, def, ghi, jkl',
-    target: '/notes/pehla'
-  },
-  {
-    date:'02.06.1990',
-    title: 'Genesis',
-    description: 'Mauris ac dui ac ipsum egestas placerat. Fusce laoreet imperdiet sem. Praesent sit amet sapien at mi luctus maximus. Ut vel luctus justo.',
-    tags: 'abc, def, ghi, jkl',
-    target: '/genesis'
-  },
-  {
-    date:'02.06.1990',
-    title: 'Genesis',
-    description: 'Mauris ac dui ac ipsum egestas placerat. Fusce laoreet imperdiet sem. Praesent sit amet sapien at mi luctus maximus. Ut vel luctus justo.',
-    tags: 'abc, def, ghi, jkl',
-    target: '/genesis'
-  },
-  {
-    date:'02.06.1990',
-    title: 'Genesis',
-    description: 'Mauris ac dui ac ipsum egestas placerat. Fusce laoreet imperdiet sem. Praesent sit amet sapien at mi luctus maximus. Ut vel luctus justo.',
-    tags: 'abc, def, ghi, jkl',
-    target: '/genesis'
-  },
-  {
-    date:'02.06.1990',
-    title: 'Genesis',
-    description: 'Mauris ac dui ac ipsum egestas placerat. Fusce laoreet imperdiet sem. Praesent sit amet sapien at mi luctus maximus. Ut vel luctus justo.',
-    tags: 'abc, def, ghi, jkl',
-    target: '/genesis'
+    date:'27.03.2020',
+    title: 'Khoj',
+    description: 'A search engine for fact check articles',
+    tags: 'technologist, ux, pm',
+    target: 'https://services.tattle.co.in/khoj'
   }
 ]
 
@@ -65,9 +38,16 @@ const TableItem = ({label}) => (
 
 const TableLink = ({target, label}) => (
   <PaddedContainer>
-    <Link to={`/${target}`}>
-      <Text size={'medium'}> {label} </Text> 
-    </Link>
+    {
+      target.startsWith('http') ?
+      <PlainExternalLink href={target} target={'_blank'}>
+        <Text size={'medium'}> {label} </Text> 
+      </PlainExternalLink>
+      :
+      <Link to={`/${target}`}>
+        <Text size={'medium'}> {label} </Text> 
+      </Link>
+    }
   </PaddedContainer>
 )
 
@@ -105,7 +85,7 @@ const IndexPage = () => (
                 </TableCell>
                 <TableCell scope='row'> 
                   <TableLink 
-                    target={`/${item.target}`}
+                    target={`${item.target}`}
                     label={item.title}
                   />
                 </TableCell>
