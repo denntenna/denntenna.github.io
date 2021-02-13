@@ -1,3 +1,24 @@
 # How is this happening?
 
 so cool
+
+```go
+
+// test script to learn go
+
+package main
+
+import "fmt"
+
+func main() {
+	usersAgeMap := make(map[string]int)
+	usersAgeMap["denny"] = 30
+	usersAgeMap["tanima"] = 27
+
+	for key, value := range usersAgeMap {
+		fmt.Printf("%v \t : %v\n", key, value)
+	}
+}
+
+
+```
