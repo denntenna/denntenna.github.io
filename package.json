@@ -25,10 +25,13 @@
     "gatsby-plugin-sharp": "^4.1.0",
     "gatsby-plugin-sitemap": "^5.1.0",
     "gatsby-plugin-styled-components": "^5.1.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.1.0",
+    "grommet": "^2.18.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.3"
   }
