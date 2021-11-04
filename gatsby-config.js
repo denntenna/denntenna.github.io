@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "denntenna.github.io",
+    siteUrl: "denntenna.github.io",
+    title: "denntenna",
   },
   plugins: [
     "gatsby-plugin-styled-components",
