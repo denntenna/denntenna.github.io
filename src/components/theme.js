@@ -1,5 +1,3 @@
-import { css } from "styled-components";
-
 const Theme = {
   global: {
     font: {
