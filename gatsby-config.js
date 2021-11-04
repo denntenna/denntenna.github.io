@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "denntenna.github.io",
+    siteUrl: "https://denntenna.github.io",
     title: "denntenna",
   },
   plugins: [
