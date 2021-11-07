@@ -22,7 +22,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Noto Serif Display"],
+          families: ["Noto Serif Display", "Noto Sans"],
         },
       },
     },
