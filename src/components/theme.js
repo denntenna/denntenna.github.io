@@ -17,6 +17,11 @@ const Theme = {
       family: "Noto Sans",
     },
   },
+  paragraph: {
+    font: {
+      family: "Noto Sans",
+    },
+  },
 };
 
 export default Theme;

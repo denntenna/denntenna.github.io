@@ -3,21 +3,11 @@ import { Box, Heading, Text } from "grommet";
 import { Edit } from "react-feather";
 import DefaultMDXLayout from "../components/default-mdx-layout";
 import Section from "../components/section";
+import { Link } from "gatsby";
 
 const IndexPage = () => (
   <DefaultMDXLayout>
     <Box fill>
-      <Heading level={4}>denntenna</Heading>
-      <Box
-        background={"neutral-2"}
-        round={"xsmall"}
-        pad={"xsmall"}
-        width={"fit-content"}
-      >
-        <Text size={"small"}>
-          a digital garden, feed, portfolio and experiment in content creation
-        </Text>
-      </Box>
       <Box height={"2em"}></Box>
       <Box direction={"column"} gap={"medium"} flex>
         <Section>
@@ -34,14 +24,25 @@ const IndexPage = () => (
           <Heading level={2} margin={"none"}>
             Cheatsheets
           </Heading>
-          <Text size={"medium"}>Elasticsearch, Dart, flutter and 7 others</Text>
+          <Text size={"medium"}>
+            <Link to={"/cheatsheets/elasticsearch"}>Elasticsearch</Link> Dart,
+            flutter and 7 others
+          </Text>
         </Section>
         <Section>
           <Heading level={2} margin={"none"}>
             Reading List
           </Heading>
           <Text size={"medium"}>
-            Braided River, ISIS caliphate, Convinience Store Woman and 10 others
+            Braided River, ISIS caliphate, Convinience Store Woman,{" "}
+            <Link to={"/reading-notes/democracy-is-sentimental"}>
+              Democracy is sentimental
+            </Link>
+            {", "}
+            <Link to={"/reading-notes/when-hope-is-a-hindrance"}>
+              When hope is a hindrance
+            </Link>{" "}
+            and 10 others
           </Text>
         </Section>
         <Section>
