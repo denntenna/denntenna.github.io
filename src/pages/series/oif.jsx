@@ -33,7 +33,7 @@ const OIFPage = () => {
 							/>
 						</Box>
 
-						<Box fill justify={"center"} background={"#00000044"}>
+						<Box fill justify={"center"} background={"#00000011"}>
 							<Heading
 								level={1}
 								alignSelf={"center"}
@@ -83,10 +83,24 @@ const OIFPage = () => {
 						</Box>
 					</Stack>
 				</Box>
-				<Box pad={"large"}>
-					<Heading level={2}>Synthetic Media</Heading>
-					<Heading level={2}>Aryan Invasion Theory</Heading>
-					<Heading level={2}>Internet Shutdowns</Heading>
+				<Box pad={"large"} flex={"grow"} gap={"medium"}>
+					<Box pad={"large"} border>
+						<Heading level={2}>Synthetic Media</Heading>
+						<Text>
+							Is deep fake technology even capable of being used
+							for a good purpose? Since the genie is out of the
+							bottle now, how do we make sense of the forthcoming
+							chaos it brings.
+						</Text>
+					</Box>
+
+					<Box pad={"large"} border>
+						<Heading level={2}>Aryan Invasion Theory</Heading>
+					</Box>
+
+					<Box pad={"large"} border>
+						<Heading level={2}>Internet Shutdowns</Heading>
+					</Box>
 				</Box>
 			</Box>
 		</Grommet>
