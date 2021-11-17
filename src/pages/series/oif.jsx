@@ -15,7 +15,7 @@ const OIFPage = () => {
 					}
 				/>
 			</Box>
-			<Text size={"small"} color={"light-2"}>
+			<Text size={"small"} color={"dark-2"}>
 				Painting by Tanaka Atsuko found{" "}
 				<Anchor href={"https://www.artic.edu/artworks/229393/untitled"}>
 					here
