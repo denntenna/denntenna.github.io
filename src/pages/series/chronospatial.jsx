@@ -7,7 +7,7 @@ const OIFPage = () => {
 	return (
 		<DefaultMDXLayout>
 			<Box>
-				<Heading level={2}>chrono-spatial</Heading>
+				<Heading level={2}>ChronoSpatial</Heading>
 				<StaticImage
 					src="../../images/chronospatial_cover.jpeg"
 					alt={"A diagram showing boxes and cubes"}
@@ -23,8 +23,6 @@ const OIFPage = () => {
 					here
 				</Anchor>
 			</Text>
-
-			<Paragraph>asdf asdfasdff</Paragraph>
 		</DefaultMDXLayout>
 	);
 };

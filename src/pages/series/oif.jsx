@@ -21,8 +21,6 @@ const OIFPage = () => {
 					here
 				</Anchor>
 			</Text>
-
-			<Paragraph>asdf asdfasdff</Paragraph>
 		</DefaultMDXLayout>
 	);
 };

@@ -16,7 +16,14 @@ const IndexPage = () => (
 							Series
 						</Heading>
 						<Text size={"medium"} weight={400}>
-							Opinions in Formation, Chronospatial and 2 others
+							<Link to={"/series/oif"}>
+								Opinions in Formation
+							</Link>{" "}
+							,{" "}
+							<Link to={"/series/chronospatial"}>
+								Chronospatial
+							</Link>{" "}
+							and 2 others
 						</Text>
 					</Box>
 				</Section>
