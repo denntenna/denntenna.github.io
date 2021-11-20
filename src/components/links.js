@@ -7,6 +7,4 @@ const ThemedLink = () => styled(Link)`
 	text-decoration: none;
 `;
 
-export default {
-	ThemedLink,
-};
+export { ThemedLink };

@@ -3,7 +3,6 @@ import { Grommet, Box, Heading, Text } from "grommet";
 import Theme from "./theme";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { ThemedLink } from "./links";
 
 const Content = styled.div`
 	p,
@@ -34,15 +33,15 @@ const DefaultMDXLayout = ({ children }) => (
 					gap={"small"}
 					align={"baseline"}
 				>
-					<ThemedLink to="/">
+					<Link to="/">
 						<Heading margin={"none"} level={4}>
 							denntenna
 						</Heading>
-					</ThemedLink>
+					</Link>
 					<Box gap={"small"}>
-						<ThemedLink to={"/about"} color={"red"}>
+						<Link to={"/about"} color={"red"}>
 							<Text size={"small"}>author</Text>
-						</ThemedLink>
+						</Link>
 					</Box>
 				</Box>
 				<Box height={"0.2em"} />

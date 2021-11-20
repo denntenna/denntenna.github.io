@@ -34,7 +34,7 @@ const OIFPage = () => {
 						<Box height={{ min: "100vh", max: "fit-content" }}>
 							<StaticImage
 								aspectRatio={1 / 2}
-								src={"../../images/oif_cover.jpeg"}
+								src={"../../../images/oif_cover.jpeg"}
 								alt={
 									"An artwork by Tanaka Atsuko featuring colored circles and smooth curves overlayed on each other"
 								}
