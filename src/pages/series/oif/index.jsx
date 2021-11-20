@@ -9,6 +9,7 @@ import {
 	Text,
 	Anchor,
 } from "grommet";
+import { ThemedLink } from "../../../components/links";
 import { StaticImage } from "gatsby-plugin-image";
 import Theme from "../../../components/theme";
 import { Link } from "gatsby";

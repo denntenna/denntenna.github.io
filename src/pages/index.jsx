@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Text } from "grommet";
+import { Box, Heading, Text, Anchor } from "grommet";
 import { Edit } from "react-feather";
 import DefaultMDXLayout from "../components/default-mdx-layout";
 import Section from "../components/section";
@@ -10,6 +10,67 @@ const IndexPage = () => (
 		<Box fill>
 			<Box height={"2em"}></Box>
 			<Box direction={"column"} gap={"medium"} flex>
+				<Section>
+					<Heading level={2} margin={"none"}>
+						Portfolio
+					</Heading>
+					<Box direction={"column"} gap={"xsmall"}>
+						<Text>
+							<Anchor
+								href={
+									"https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"
+								}
+								target={"blank"}
+							>
+								{" "}
+								Tweat
+							</Anchor>
+							{" : Live Tweet every bite of your food, 2018"}
+						</Text>
+						<Text>
+							<Anchor
+								href={
+									"https://www.youtube.com/watch?v=yvUFGLoQxfI"
+								}
+								target={"blank"}
+							>
+								{" "}
+								Dhish
+							</Anchor>
+							{
+								" : Make music with intuitive percussive hand gestures, 2019"
+							}
+						</Text>
+						<Text>
+							<Anchor
+								href={
+									"https://winners.webbyawards.com/2019/apps-and-software/general-mobile-ott-apps/public-service-activism/78754/migracam"
+								}
+								target={"blank"}
+							>
+								{" "}
+								Migracam
+							</Anchor>
+							{
+								" : An app for immigrants on US border to record law enforcement misdemeanor, 2020"
+							}
+						</Text>
+						<Text>
+							<Anchor
+								href={
+									"https://winners.webbyawards.com/2019/apps-and-software/general-mobile-ott-apps/public-service-activism/78754/migracam"
+								}
+								target={"blank"}
+							>
+								{" "}
+								Tattle
+							</Anchor>
+							{
+								" : Tools and dataset to understand and respond to misinformation in India, 2020"
+							}
+						</Text>
+					</Box>
+				</Section>
 				<Section>
 					<Box>
 						<Heading level={2} margin={"none"}>
@@ -53,12 +114,6 @@ const IndexPage = () => (
 						</Link>{" "}
 						and 10 others
 					</Text>
-				</Section>
-				<Section>
-					<Heading level={2} margin={"none"}>
-						Portfolio
-					</Heading>
-					<Text size={"medium"}>Dhish, Migracam and Tattle</Text>
 				</Section>
 			</Box>
 		</Box>
