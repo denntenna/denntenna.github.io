@@ -14,18 +14,19 @@ const IndexPage = () => (
 					<Heading level={2} margin={"none"}>
 						Portfolio
 					</Heading>
+					<Box height="1.2em"></Box>
 					<Box direction={"column"} gap={"xsmall"}>
 						<Text>
 							<Anchor
-								href={
-									"https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"
-								}
+								href={"https://tattle.co.in"}
 								target={"blank"}
 							>
 								{" "}
-								Tweat
+								Tattle
 							</Anchor>
-							{" : Live Tweet every bite of your food, 2018"}
+							{
+								" : Tools and Dataset to understand and respond to misinformation in India, 2020"
+							}
 						</Text>
 						<Text>
 							<Anchor
@@ -58,20 +59,18 @@ const IndexPage = () => (
 						<Text>
 							<Anchor
 								href={
-									"https://winners.webbyawards.com/2019/apps-and-software/general-mobile-ott-apps/public-service-activism/78754/migracam"
+									"https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"
 								}
 								target={"blank"}
 							>
 								{" "}
-								Tattle
+								Tweat
 							</Anchor>
-							{
-								" : Tools and dataset to understand and respond to misinformation in India, 2020"
-							}
+							{" : Live Tweet every bite of your food, 2018"}
 						</Text>
 					</Box>
 				</Section>
-				<Section>
+				{/*<Section>
 					<Box>
 						<Heading level={2} margin={"none"}>
 							Series
@@ -114,7 +113,7 @@ const IndexPage = () => (
 						</Link>{" "}
 						and 10 others
 					</Text>
-				</Section>
+				</Section> */}
 			</Box>
 		</Box>
 	</DefaultMDXLayout>
