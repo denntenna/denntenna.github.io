@@ -14,7 +14,7 @@ const IndexPage = () => (
 					<Heading level={2} margin={"none"}>
 						Portfolio
 					</Heading>
-					<Box height="1.2em"></Box>
+					<Box height="0.8em"></Box>
 					<Box direction={"column"} gap={"xsmall"}>
 						<Text>
 							<Anchor
