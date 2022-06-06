@@ -39,9 +39,9 @@ const DefaultMDXLayout = ({ children }) => (
 						</Heading>
 					</Link>
 					<Box gap={"small"}>
-						<Link to={"/about"} color={"red"}>
+						{/* <Link to={"/about"} color={"red"}>
 							<Text size={"small"}>author</Text>
-						</Link>
+						</Link> */}
 					</Box>
 				</Box>
 				<Box height={"0.2em"} />
