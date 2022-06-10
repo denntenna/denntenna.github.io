@@ -6,71 +6,75 @@ import Section from "../components/section";
 import { Link } from "gatsby";
 
 const IndexPage = () => (
-	<DefaultMDXLayout>
-		<Box fill>
-			<Box height={"2em"}></Box>
-			<Box direction={"column"} gap={"medium"} flex>
-				<Section>
-					<Heading level={2} margin={"none"}>
-						Portfolio
-					</Heading>
-					<Box height="0.8em"></Box>
-					<Box direction={"column"} gap={"xsmall"}>
-						<Text>
-							<Anchor
-								href={"https://tattle.co.in"}
-								target={"blank"}
-							>
-								{" "}
-								Tattle
-							</Anchor>
-							{
-								" : Tools and Dataset to understand and respond to misinformation in India, 2020"
-							}
-						</Text>
-						<Text>
-							<Anchor
-								href={
-									"https://www.youtube.com/watch?v=yvUFGLoQxfI"
-								}
-								target={"blank"}
-							>
-								{" "}
-								Dhish
-							</Anchor>
-							{
-								" : Make music with intuitive percussive hand gestures, 2019"
-							}
-						</Text>
-						<Text>
-							<Anchor
-								href={
-									"https://winners.webbyawards.com/2019/apps-and-software/general-mobile-ott-apps/public-service-activism/78754/migracam"
-								}
-								target={"blank"}
-							>
-								{" "}
-								Migracam
-							</Anchor>
-							{
-								" : An app for immigrants on US border to record law enforcement misdemeanor, 2020"
-							}
-						</Text>
-						<Text>
-							<Anchor
-								href={
-									"https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"
-								}
-								target={"blank"}
-							>
-								{" "}
-								Tweat
-							</Anchor>
-							{" : Live Tweet every bite of your food, 2018"}
-						</Text>
-					</Box>
-				</Section>
-				{/*<Section>
+  <DefaultMDXLayout>
+    <Box fill>
+      <Box height={"2em"}></Box>
+      <Box direction={"column"} gap={"medium"} flex>
+        <Section>
+          <Heading level={2} margin={"none"}>
+            Portfolio
+          </Heading>
+          <Box height="0.8em"></Box>
+          <Box direction={"column"} gap={"xsmall"}>
+            <Text>
+              <Anchor href={"https://tattle.co.in"} target={"blank"}>
+                {" "}
+                Tattle
+              </Anchor>
+              {
+                " (2020 onwards) : Tools and Dataset to understand and respond to misinformation in India."
+              }
+            </Text>
+            <Text>
+              <Anchor
+                href={"https://www.instagram.com/mouthwash.reels/reels/"}
+                target={"blank"}
+              >
+                {" "}
+                Mouthwash
+              </Anchor>
+              {" (2022) : Comedy Sketches on Instagram Reels"}
+            </Text>
+
+            <Text>
+              <Anchor
+                href={"https://www.youtube.com/watch?v=yvUFGLoQxfI"}
+                target={"blank"}
+              >
+                {" "}
+                Dhish
+              </Anchor>
+              {" (2019) : Make music with intuitive percussive hand gestures."}
+            </Text>
+            <Text>
+              <Anchor
+                href={
+                  "https://winners.webbyawards.com/2019/apps-and-software/general-mobile-ott-apps/public-service-activism/78754/migracam"
+                }
+                target={"blank"}
+              >
+                {" "}
+                Migracam
+              </Anchor>
+              {
+                " (2020) : An app for immigrants on US border to record law enforcement misdemeanor. Built at Quardrant2"
+              }
+            </Text>
+            <Text>
+              <Anchor
+                href={
+                  "https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"
+                }
+                target={"blank"}
+              >
+                {" "}
+                Tweat
+              </Anchor>
+              {" (2018) : Live Tweet every bite of your food"}
+            </Text>
+          </Box>
+        </Section>
+        {/*<Section>
 					<Box>
 						<Heading level={2} margin={"none"}>
 							Series
@@ -114,9 +118,9 @@ const IndexPage = () => (
 						and 10 others
 					</Text>
 				</Section> */}
-			</Box>
-		</Box>
-	</DefaultMDXLayout>
+      </Box>
+    </Box>
+  </DefaultMDXLayout>
 );
 
 export default IndexPage;
