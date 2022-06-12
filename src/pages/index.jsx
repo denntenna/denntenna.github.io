@@ -10,7 +10,10 @@ const IndexPage = () => (
     <Box fill>
       <Box pad={"medium"} round border width={"fit-content"}>
         <Text>
-          I am currently hiring a Full stack javascript developer for Tattle
+          I am currently hiring a Full stack javascript developer for{" "}
+          <Anchor href={"https://tattle.co.in/"} target={"_blank"}>
+            Tattle
+          </Anchor>
         </Text>{" "}
         <Anchor
           href={"https://tattle.co.in/career/fullstack/"}
