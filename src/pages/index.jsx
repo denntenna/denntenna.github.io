@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Heading, Text, Anchor } from "grommet";
+import { StaticImage } from "gatsby-plugin-image";
 import { Edit } from "react-feather";
 import DefaultMDXLayout from "../components/default-mdx-layout";
 import Section from "../components/section";
@@ -104,6 +105,12 @@ const IndexPage = () => (
         </Section>
         <Section>
           <Heading level={2} margin={"none"}>
+            Projects
+          </Heading>
+          <Text size="medium">Generative Workout Mix (wip)</Text>
+        </Section>
+        <Section>
+          <Heading level={2} margin={"none"}>
             Cheatsheets
           </Heading>
           <Text size={"medium"}>
@@ -117,11 +124,13 @@ const IndexPage = () => (
           </Heading>
           <Text size={"medium"}>
             Braided River, ISIS caliphate, Convinience Store Woman,{" "}
-            <Link to={"/reading-notes/democracy-is-sentimental"}>
+            <Link to={"/crying-in-h-mart"}>Crying in H Mart</Link>
+            {", "}
+            <Link to={"/democracy-is-sentimental"}>
               Democracy is sentimental
             </Link>
             {", "}
-            <Link to={"/reading-notes/when-hope-is-a-hindrance"}>
+            <Link to={"/when-hope-is-a-hindrance"}>
               When hope is a hindrance
             </Link>{" "}
             and 10 others
