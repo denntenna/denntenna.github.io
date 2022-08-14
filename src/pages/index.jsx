@@ -33,9 +33,8 @@ const IndexPage = ({ data }) => {
             <Heading level={2} margin={"none"}>
               Portfolio
             </Heading>
-            <Box height="0.8em"></Box>
 
-            <Box direction={"column"} gap={"xsmall"}>
+            <Box direction={"column"}>
               <Text>
                 <Anchor href={"https://tattle.co.in"} target={"blank"}>
                   {" "}
@@ -110,9 +109,19 @@ const IndexPage = ({ data }) => {
           </Section>
           <Section>
             <Heading level={2} margin={"none"}>
-              Projects
+              🚧 👷‍♂️ Work in Progress 🚧 👷‍♂️
             </Heading>
-            <Text size="medium">Generative Workout Mix (wip)</Text>
+            <Box>
+              <Link to={"/generative-workout-mix"}>
+                <Text size="medium">Generative Workout Mix</Text>
+              </Link>
+              <Link to={`/oif`}>
+                <Text>Opinions In Formation</Text>
+              </Link>
+              <Link to={`/chronospatial`}>
+                <Text>Chronospatial</Text>
+              </Link>
+            </Box>
           </Section>
           <Section>
             <Heading level={2} margin={"none"}>
@@ -162,12 +171,6 @@ const IndexPage = ({ data }) => {
                   ))
                 : null}
             </Box>
-          </Section>
-
-          <Section>
-            <Heading level={2} margin={"none"}>
-              <Link to={`/oif`}>Opinions In Formation</Link>
-            </Heading>
           </Section>
         </Box>
       </Box>
