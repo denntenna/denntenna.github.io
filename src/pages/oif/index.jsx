@@ -17,12 +17,7 @@ import styled from "styled-components";
 
 const BlurBox = styled.div`
   width: fit-content;
-  h1 {
-    filter: drop-shadow(2px 2px 4px #000000);
-  }
-  p {
-    filter: drop-shadow(2px 2px 4px #a8dadc);
-  }
+  background-color: rgba(147, 7, 19, 0.6);
 `;
 
 const OIFPage = () => {
@@ -38,7 +33,7 @@ const OIFPage = () => {
                 alt={
                   "An artwork by Tanaka Atsuko featuring colored circles and smooth curves overlayed on each other"
                 }
-                objectFit={"contain"}
+                objectFit={"fill"}
               />
             </Box>
 
@@ -73,23 +68,25 @@ const OIFPage = () => {
                   </Text>
                 </Box>
               </Box>
-              <Box flex={"grow"} justify="center">
+              <Box flex={"grow"} justify="center" margin={"large"}>
                 <BlurBox>
-                  <Heading level={1} color={"light-1"}>
-                    Opinions in Formation
-                  </Heading>
-                  <Paragraph
-                    alignSelf={"center"}
-                    color={"light-1"}
-                    size={"large"}
-                  >
-                    This section of live documents that show my current
-                    understanding of contentious issues. I see some value in
-                    sharing how I've been thinking about some of these things. I
-                    collect literature that I have reffered to and provide my
-                    notes and commntary on it. I also invite additional link and
-                    resource submissions from readers.
-                  </Paragraph>
+                  <Box>
+                    <Heading level={1} color={"light-1"}>
+                      Opinions in Formation
+                    </Heading>
+                    <Paragraph
+                      alignSelf={"center"}
+                      color={"light-1"}
+                      size={"large"}
+                    >
+                      This section of live documents that show my current
+                      understanding of contentious issues. I see some value in
+                      sharing how I've been thinking about some of these things.
+                      I collect literature that I have reffered to and provide
+                      my notes and commntary on it. I also invite additional
+                      link and resource submissions from readers.
+                    </Paragraph>
+                  </Box>
                 </BlurBox>
               </Box>
             </Box>
