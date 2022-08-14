@@ -1,0 +1,19 @@
+---
+title: 12-08-2022
+description: Exploring Google Cloud Run
+date: 12-08-2022
+---
+
+# 12-08-2022
+
+- managed to deploy ogbv-ml-rest to google cloud run
+  - very simple `gcloud run deploy --memory 8G --cpu 4`
+  - Query Command `curl -X POST https://ogbv-ml-rest-■■■■■■-■■■■.a.run.app/predict -H 'Content-Type: application/json' -d '{"text":"■■■■ ■■■■ ■■■■■■■ ■■■■"}'`
+  - It should scale up and down automatically. It will also scale down to 0 when not being used which is a huge money saver
+  - Since the requests to /predict go via `uli-rest-api` i might be able to keep this public for now and still migrate uli to gke
+- Conclusion for Uli
+  - Lets try running the entire app on cloud run. No need to involve clusters and kubernetes
+  - strategy
+    - allow unauthenticated requests to `uli-rest`
+    - `uli-rest` can communicate with `ogbv-ml-rest` via [service-to-service authentication](https://cloud.google.com/run/docs/authenticating/service-to-service?hl=en)
+    - `uli-rest` can communicate to a cloud-sql instance

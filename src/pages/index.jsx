@@ -132,6 +132,11 @@ const IndexPage = () => (
             {", "}
             <Link to={"/when-hope-is-a-hindrance"}>
               When hope is a hindrance
+            </Link>
+            {", "}
+            <Text>The Calcutta Chromomsome, </Text>
+            <Link to={"/the-nutmeg-curse"}>
+              The Nutmeg's Curse: Parables for a Planet in Crisis
             </Link>{" "}
             and 10 others
           </Text>

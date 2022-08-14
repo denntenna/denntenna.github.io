@@ -29,14 +29,6 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "feed",
-        path: "./src/feed/",
-      },
-      __key: "feed",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
         name: "pages",
         path: "./src/pages/",
       },

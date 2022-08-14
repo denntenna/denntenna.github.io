@@ -1,0 +1,21 @@
+---
+title: 13-08-2022
+description: Creating custom entities on Gatsby
+date: 13-08-2022
+---
+
+# 13-08-2022
+
+- Main Insights wrt gatsby and creating blogs with authors
+  - Setup a [wip setup](https://github.com/tattle-made/website/commit/5280aab81432544def4f94c49749fab0937e3163) to create pages for blog, people and projects
+  - blogs can be mdx, authors should be json or yaml.
+    - the transformer plugins for them will create nodes with the relevant fields being at root level. if i model them as frontmatter in an mdx file, it makes the datastructure very nested and hence hard to link with another field
+  - Setting up foreign keys on gatsby via @link directive
+    - gatsby @link directive tutorials
+      - [detailed blog post](https://hashinteractive.com/blog/gatsby-data-relationships-with-foreign-key-fields/)
+      - [github issue](https://github.com/gatsbyjs/gatsby/issues/24791)
+  - Useful [video lectures](https://www.youtube.com/playlist?list=PLW0RabRDhwwzVNhlOgQQgw6HJzXdM1MnT) on building a blog with gatsby
+- People page
+  - added a [github issue](https://github.com/tattle-made/website/issues/75) documenting some nice to have features
+- Added gatsby snippets to [[gatsby]]
+- Added a [github issue](https://github.com/tattle-made/website/issues/76) about allowing tattle team members to preview the website before pushing
