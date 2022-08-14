@@ -1,3 +1,11 @@
+---
+title: Generative Workout Mix
+date: 14-08-2022
+---
+
+import { Box } from "grommet";
+import SyntaxHighlighter from "react-syntax-highlighter";
+
 # Generative Workout Mix
 
 This project began when I had ran out of music to workout to. Before I headed out for my workout, I would spend 5-10 minute creating a playlist of music to workout to. Clearly I had preferences on what worked for me and what did not. This is when I started to analytically breakdown what makes for a good workout music.
@@ -10,20 +18,99 @@ Besides these there are some pragmatic requirements.
 
 ## Experimenting with Tidal Cycles
 
-I chose live coding as a medium to prototype this over a DAW. I felt like I needed something where I could define simple motifs and generate infinite variations easily. Live coding felt like a
+I started with trying to come up with a generative algorithmic process to create this music. While I was trying to come up with rules for this type of music to encode in my algorithm, I began trying out new ideas frequently in a live coding music environment called Tidal Cycles. What I eventually learnt was that instead of coming up with ONE generative system, the process of coming up with this music was much more fun and natural to creating workout music.
 
-### Practice Notes
+## Highlights
 
-- 10-03-2022 : Rhythmic Patterns
-- 10-03-2022 : Harmony
-- 10-03-2022 : Melody and Basslines
-- 10-03-2022 : Transitions
-- 10-03-2022 : Sampling and Slicing
-- 10-03-2022 : Counters and Timing
+1. Exploring harmony and dynamics in sound design
 
-### Compositions
+<Box overflow={"scroll"} gap={"small"} border round={"small"}>
+  <Box>
+    <SyntaxHighlighter language="haskell">
+      {`
+d1 $ stack [
+    n "<c4'maj7(3,8,<2,2,4,4>)!3 a3'maj9(5,8,<2,4>)>" # s "supercomparator" # room 0.8 # sz 0.2 # gain (sine+0.4) # voice 0.8 # decay 0.2 # legato 1 
+    , "tsukick:2(3,16,<0,2,6,10>)" # n (irand 2) # cut 382 # gain 1.2 
+    , "[tsuho:6(9,16,<2,4,5>), tsuhc:9(4,16,1)]" # pan (sine+0.2) 
+    , struct "t(4,8)" $ scale "lydian" "0 1 3 4 5 6" # s "superhammond" # silence
+]
+            `}
+    </SyntaxHighlighter>
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/2VbkzeiQGlc"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+</Box>{" "}
 
-- Early Works I
-- Early Works II
-- Early Works III
-- Instagram Release
+2. Composing and Playing melodies
+
+<Box overflow={"scroll"} gap={"small"} border round={"small"}>
+  <Box>
+    <SyntaxHighlighter language="haskell">
+      {`
+let melody4 a b c d = cat [(scale "lydian" a),(scale "lydian" b),(scale "lydian" c),(scale "lydian" d)]
+let bl4 key a b c d = cat [(scale "lydian" a |-| 24 |+| key),(scale "lydian" b |-| 24 |+| key),(scale "lydian" c |-| 24 |+| key),(scale "lydian" d |-| 24 |+| key)]
+let melody8 a b c d e f g h = cat [(scale "major" a),(scale "major" b),(scale "major" c),(scale "major" d),(scale "major" e),(scale "major" f),(scale "major" g),(scale "major" h)]
+let catMelody melodyA melodyB = cat [melodyA, melodyB]
+            `}
+    </SyntaxHighlighter>
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/4GweazXRVXI"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+</Box>
+
+2. Fast Melodic Solos
+
+<Box overflow={"scroll"} gap={"small"} border round={"small"}>
+  <Box>
+    <SyntaxHighlighter language="haskell">
+      {`
+d1 $ jux rev $ chunk 4 (fast 2 . (|- n 12)) $ off 0.25 (|+ 7) $ struct (iter 4 "t(3,8)")
+  $ arp "<up down>" $ n "<d3'm9'8 g3'dom13>"
+  # sound "superpiano"
+  # gain 0.8
+d2 $ n "<d3'min'7 g3'dom7>"
+  # sound "superpiano"
+  # gain 0.7
+  # attack 0.3
+  # sustain 2
+  # room 0.9
+  # sz 0.9
+  # pan sine
+  # legato 0.4
+  # speed (sine + 0.5)
+d3 "[gabba(2,9,<0,4>), [~ sd], hh(5,8,<1,2>), hc(3,8,2)]"
+`}
+
+</SyntaxHighlighter>
+
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/LJzUYNian_I"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+</Box>
