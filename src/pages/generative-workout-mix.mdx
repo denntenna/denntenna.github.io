@@ -168,3 +168,59 @@ do
     ></iframe>
   </Box>
 </Box>
+
+5. Recognizable melodic ideas with randomization
+
+<Box overflow={"scroll"} gap={"small"} border round={"small"}>
+  <Box>
+    <SyntaxHighlighter language="haskell">
+      {`
+do
+  let bassPat = struct "t(<5!3 6 5 7 7 8>,16,<0 2 4>)" $ choose [0, 3, 5, 7] + 5
+  let leadPat = struct "t(<5!3 6 7 7 7 8>,16,<1 2 3>)" $ wchoose [(0, 1), (3, 0.75), (5, 0.75), (6, 0.125), (7, 0.5)] + 5
+  d1 
+      $ n (bassPat |- 12)
+      # s "subBass1"
+      # pan tri
+      # gain 0.8
+  d7 
+      $ n (bassPat |- 24)
+      # s "subBass1"
+      # pan tri
+      # gain 0.8
+  d8
+      $ n (bassPat |- 24)
+      # s "defaultB"
+      # gain 1.6
+      # room 0.2
+      # sz 0.6
+      # pan tri
+  d3 $ s "<[tsukick:1 tsusnare:14]!7 [tsukick:1 tsusnare:14(5,8)]>" # gain 1.8
+  d6 $ n "<f3'maj7'ii(1,2)!7 as3'maj9(2,3)>" # s "supercomparator" # legato 0.4 # gain 0.7 # room 0.5 # sz 0.2
+  d4 $ fast 2 $ s "<[tsuho(6,8), tsuhc:3(3,8)]!7 [tsuho(7,8), tsuhc:4(6,8,1)]>" # gain 1.2 # legato 0.2 # pan cosine
+  d9  
+      $ every 12 (jux rev) 
+      $ whenmod 9 7 (fast 2)
+      $ every 7 (|+ 12)
+      $ leadPat
+      # s "supercomparator"
+      # gain 0.9
+      # room 0.2
+      # sz 0.6
+`}
+
+</SyntaxHighlighter>
+
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/ao_UMCT3k7Q"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+</Box>
