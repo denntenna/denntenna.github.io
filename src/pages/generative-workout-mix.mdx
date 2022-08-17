@@ -76,7 +76,7 @@ let catMelody melodyA melodyB = cat [melodyA, melodyB]
   </Box>
 </Box>
 
-2. Fast Melodic Solos
+3. Fast Melodic Solos
 
 <Box overflow={"scroll"} gap={"small"} border round={"small"}>
   <Box>
@@ -107,6 +107,60 @@ d3 "[gabba(2,9,<0,4>), [~ sd], hh(5,8,<1,2>), hc(3,8,2)]"
       width="289"
       height="157"
       src="https://www.youtube.com/embed/LJzUYNian_I"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+</Box>
+
+4. Melodies and Bassline using [mini notation](https://tidalcycles.org/docs/reference/mini_notation/)
+
+<Box overflow={"scroll"} gap={"small"} border round={"small"}>
+  <Box>
+    <SyntaxHighlighter language="haskell">
+      {`
+d1 
+    $ n ("{<g(3,8)!3 f(4,8,2)>}%<2 2 6 <4 <2 6>>>") 
+    # s "defaultB"
+    # gain 1.4
+    # silence
+do
+    let pat = "{<g3(<3 4>,8) <a3 as3 d3 f3>(2,4,2)>}%<1 2 4 8>"
+    d1 
+        $ n (pat |- 12)
+        # s "subBass1"
+        # gain (1+cosine)
+    d7 
+        $ n (pat |- 24)
+        # s "subBass1"
+        # gain (1+sine)
+    d8
+        $ n (pat |+ 24)
+        # s "defaultB"
+        # gain 1.4
+`}
+
+</SyntaxHighlighter>
+
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/-n6KPsBoJss"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/YZUQlJ-2wAQ"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
