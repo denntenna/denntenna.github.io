@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Text, Anchor } from "grommet";
+import { Box, Heading, Text, Anchor, Accordion, AccordionPanel } from "grommet";
 import { StaticImage } from "gatsby-plugin-image";
 import { Edit } from "react-feather";
 import DefaultMDXLayout from "../components/default-mdx-layout";
@@ -9,6 +9,8 @@ import { Link, graphql } from "gatsby";
 const IndexPage = ({ data }) => {
   const logs = data.logs.nodes;
   const oif = data.oif.nodes;
+  const readingNotes = data.readingNotes.nodes;
+  console.log({ readingNotes });
   return (
     <DefaultMDXLayout>
       <Box fill>
@@ -28,7 +30,7 @@ const IndexPage = ({ data }) => {
         </Box>
         <Box height={"2em"}></Box>
 
-        <Box direction={"column"} gap={"medium"} flex>
+        <Box direction={"column"} gap={"medium"}>
           <Section>
             <Heading level={2} margin={"none"}>
               Portfolio
@@ -95,18 +97,7 @@ const IndexPage = ({ data }) => {
               </Text>
             </Box>
           </Section>
-          <Section>
-            {/* <Box>
-            <Heading level={2} margin={"none"}>
-              Series
-            </Heading>
-            <Text size={"medium"} weight={400}>
-              <Link to={"/series/oif"}>Opinions in Formation</Link> ,{" "}
-              <Link to={"/series/chronospatial"}>Chronospatial</Link> and 2
-              others
-            </Text>
-          </Box> */}
-          </Section>
+
           <Section>
             <Heading level={2} margin={"none"}>
               🚧 👷‍♂️ Work in Progress 🚧 👷‍♂️
@@ -132,35 +123,31 @@ const IndexPage = ({ data }) => {
               flutter and 7 others
             </Text>
           </Section>
+
           <Section>
             <Heading level={2} margin={"none"}>
-              Reading Notes
+              Reading Notes{" "}
             </Heading>
-            <Text size={"medium"}>
-              Braided River, ISIS caliphate, Convinience Store Woman,{" "}
-              <Link to={"/crying-in-h-mart"}>Crying in H Mart</Link>
-              {", "}
-              <Link to={"/democracy-is-sentimental"}>
-                Democracy is sentimental
-              </Link>
-              {", "}
-              <Link to={"/when-hope-is-a-hindrance"}>
-                When hope is a hindrance
-              </Link>
-              {", "}
-              <Text>The Calcutta Chromomsome, </Text>
-              <Link to={"/the-nutmeg-curse"}>
-                The Nutmeg's Curse: Parables for a Planet in Crisis
-              </Link>{" "}
-              and 10 others
-            </Text>
+
+            <Box gap={"xsmall"}>
+              {readingNotes
+                ? readingNotes.map((readingNote) => (
+                    <Box>
+                      <Link to={`/${readingNote.slug}`}>
+                        <Text>{readingNote.frontmatter.title}</Text>
+                      </Link>
+                    </Box>
+                  ))
+                : null}
+            </Box>
           </Section>
+
           <Section>
             <Heading level={2} margin={"none"}>
               Logs
             </Heading>
 
-            <Box direction={"log-responsive"} gap={"xsmall"}>
+            <Box gap={"xsmall"}>
               {logs
                 ? logs.map((log) => (
                     <Box>
@@ -182,6 +169,21 @@ export const query = graphql`
   query IndexQuery {
     logs: allMdx(
       filter: { fileAbsolutePath: { regex: "/.*/src/pages/logs/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        slug
+        frontmatter {
+          title
+          cover_image
+          date
+          description
+        }
+        fileAbsolutePath
+      }
+    }
+    readingNotes: allMdx(
+      filter: { fileAbsolutePath: { regex: "/.*/src/pages/reading-notes/" } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
