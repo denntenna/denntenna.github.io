@@ -21,6 +21,16 @@ const IndexPage = ({ data }) => {
         wrap={"true"}
       >
         <Section>
+          <Heading level={2} margin={{ bottom: "small", top: "none" }}>
+            Announcement
+          </Heading>
+          <Box height={"auto"} width={"fill"}>
+            <StaticImage
+              aspectRatio={1 / 1}
+              src={"../images/thumb-announcement-2.png"}
+              objectFit={"fill"}
+            />
+          </Box>
           <Text>
             I am currently hiring a Full stack javascript developer for{" "}
             <Anchor href={"https://tattle.co.in/"} target={"_blank"}>
@@ -38,6 +48,13 @@ const IndexPage = ({ data }) => {
           <Heading level={2} margin={{ bottom: "small", top: "none" }}>
             Portfolio
           </Heading>
+          <Box height={"auto"} width={"fill"}>
+            <StaticImage
+              aspectRatio={1 / 1}
+              src={"../images/thumb-portfolio-2.png"}
+              objectFit={"fill"}
+            />
+          </Box>
 
           <Box direction={"column"}>
             <Text>
@@ -103,6 +120,13 @@ const IndexPage = ({ data }) => {
           <Heading level={2} margin={{ bottom: "small", top: "none" }}>
             Work in Progress
           </Heading>
+          <Box height={"auto"} width={"fill"}>
+            <StaticImage
+              aspectRatio={1 / 1}
+              src={"../images/thumb-wip.png"}
+              objectFit={"fill"}
+            />
+          </Box>
           <Box>
             <Link to={"/generative-workout-mix"}>
               <Text size="medium">Generative Workout Mix</Text>
@@ -129,6 +153,13 @@ const IndexPage = ({ data }) => {
           <Heading level={2} margin={{ bottom: "small", top: "none" }}>
             Reading Notes{" "}
           </Heading>
+          <Box height={"auto"} width={"fill"}>
+            <StaticImage
+              aspectRatio={1 / 1}
+              src={"../images/thumb-reading-notes.png"}
+              objectFit={"fill"}
+            />
+          </Box>
 
           <Box gap={"xsmall"}>
             {readingNotes
@@ -147,6 +178,13 @@ const IndexPage = ({ data }) => {
           <Heading level={2} margin={{ bottom: "small", top: "none" }}>
             Logs
           </Heading>
+          <Box height={"auto"} width={"fill"}>
+            <StaticImage
+              aspectRatio={1 / 1}
+              src={"../images/thumb-logs.png"}
+              objectFit={"fill"}
+            />
+          </Box>
 
           <Box gap={"xsmall"}>
             {logs
