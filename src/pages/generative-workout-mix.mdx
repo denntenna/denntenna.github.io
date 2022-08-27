@@ -224,3 +224,35 @@ do
     ></iframe>
   </Box>
 </Box>
+
+
+6. Playing with Samples
+
+Sample credits go to [Emma Chamberlain](https://www.youtube.com/watch?v=F14Flnq3zCY)
+
+<Box overflow={"scroll"} gap={"small"} border round={"small"}>
+  <Box>
+    <SyntaxHighlighter language="haskell">
+      {`
+d2 
+    $ every "<2 4 2 4>" ((scramble 8).(ply 3).(degradeBy 0.2))
+    $ stack [
+        slow 2 $ striate 128 "food:1" # gain 1.2
+    ]
+`}
+
+</SyntaxHighlighter>
+
+  </Box>
+  <Box width={"xsmall"} pad={"small"} alignSelf={"center"}>
+    <iframe
+      width="289"
+      height="157"
+      src="https://www.youtube.com/embed/JQTiSzQP_Fg"
+      title="denntenna"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </Box>
+</Box>
