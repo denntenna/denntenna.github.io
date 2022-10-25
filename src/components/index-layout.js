@@ -52,8 +52,7 @@ const IndexLayout = ({ children }) => {
             width={"fit-content"}
           >
             <Text size={"small"}>
-              a digital garden, feed, portfolio and experiment in content
-              creation
+              everything here is a work in progress unless explicitly stated.
             </Text>
           </Box>
           <Box height={"1.2em"} />
