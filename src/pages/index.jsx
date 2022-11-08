@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   const logs = data.logs.nodes;
   const oif = data.oif.nodes;
   const readingNotes = data.readingNotes.nodes;
-  console.log({ readingNotes });
+  const cheatsheets = data.cheatsheets.nodes;
   return (
     <IndexLayout>
       <Box
@@ -123,10 +123,17 @@ const IndexPage = ({ data }) => {
           <Heading level={2} margin={{ bottom: "small", top: "none" }}>
             Cheatsheets
           </Heading>
-          <Text size={"medium"}>
-            <Link to={"/cheatsheets/elasticsearch"}>Elasticsearch</Link> Dart,
-            flutter and 7 others
-          </Text>
+          <Box gap={"xsmall"}>
+            {cheatsheets
+              ? cheatsheets.map((cheatsheet) => (
+                  <Box>
+                    <Link to={`/${cheatsheet.slug}`}>
+                      <Text>{cheatsheet.frontmatter.title}</Text>
+                    </Link>
+                  </Box>
+                ))
+              : null}
+          </Box>
         </Section>
 
         <Section>
@@ -182,6 +189,19 @@ export const query = graphql`
           cover_image
           date
           description
+        }
+        fileAbsolutePath
+      }
+    }
+    cheatsheets: allMdx(
+      filter: { fileAbsolutePath: { regex: "/.*/src/pages/cheatsheets/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        slug
+        frontmatter {
+          title
+          date
         }
         fileAbsolutePath
       }
