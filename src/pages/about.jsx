@@ -8,7 +8,7 @@ const AboutPage = () => {
     <DefaultMDXLayout>
       <Box direction={"row-responsive"}>
         <Box width={"medium"}>
-          <Heading level={2}>About</Heading>
+          <Heading level={3}>About</Heading>
           <Box direction={"row-responsive"} gap={"medium"}>
             <Box width={"small"} height={"small"}>
               <StaticImage
@@ -29,12 +29,15 @@ const AboutPage = () => {
         </Box>
       </Box>
       <Paragraph>Hi,</Paragraph>
-      <Paragraph>My name is denny. I am a technologist and humorist.</Paragraph>
       <Paragraph>
-        I created this digital space to experiment with online content creation.
-        I want to experiment with web technologies to learn how independent
-        creators could also carve their unique space online away from social
-        media platforms.
+        My name is denny. I am an engineer who engages with political issues
+        using software and humor.
+      </Paragraph>
+      <Paragraph>
+        I created denntenna to share my creative practice on the internet. It
+        has a hydra like structure with various heads - digital garden, wiki,
+        social feed, CMS, publication platform etc. A software that I constantly
+        rewrite and tweak, it might always be a work in progress.
       </Paragraph>
     </DefaultMDXLayout>
   );
