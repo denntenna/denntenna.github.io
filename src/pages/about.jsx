@@ -1,7 +1,9 @@
 import React from "react";
-import { Box, Heading, Paragraph, Text } from "grommet";
+import { Box, Heading, Paragraph, Text, Button } from "grommet";
 import DefaultMDXLayout from "../components/default-mdx-layout";
 import { StaticImage } from "gatsby-plugin-image";
+import CV from "../images/cv-denny-george-27-01-2023.pdf";
+import { Link } from "gatsby";
 
 const AboutPage = () => {
   return (
