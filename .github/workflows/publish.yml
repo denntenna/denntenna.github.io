@@ -9,5 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: deploy
+      - uses: actions/checkout@v2
+        with:
+          ref: dev
+      - name: Deploy
+        run: |
           npm run deploy
