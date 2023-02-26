@@ -10,7 +10,7 @@ const ReadingNotes = ({ data }) => {
   console.log(data);
   return (
     <DefaultMDXLayout>
-      <Heading level={2}>Reading Notes</Heading>
+      <Heading level={2}>Notes</Heading>
       <Box direction="row-responsive" gap="medium">
         <Box width={"medium"} gap="medium">
           <Box>
@@ -31,7 +31,7 @@ const ReadingNotes = ({ data }) => {
           </Box>
         </Box>
 
-        <Box gap={"xsmall"}>
+        <Box gap={"medium"}>
           {posts
             ? posts.map((post, ix) => {
                 const { frontmatter } = post;
@@ -49,8 +49,8 @@ const ReadingNotes = ({ data }) => {
                     key={ix}
                     direction={"row-responsive"}
                     gap={"small"}
-                    pad={"xsmall"}
-                    background={ix % 2 === 0 ? "light-1" : "light-3"}
+                    pad={"small"}
+                    background={ix % 2 === 0 ? "light-1" : "light-2"}
                   >
                     {featuredImageSrc ? (
                       <Box height={"xsmall"} width={"xsmall"} round>

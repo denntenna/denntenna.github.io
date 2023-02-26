@@ -18,11 +18,11 @@ const IndexPage = ({ data }) => {
       <Box
         fill
         direction={"row-responsive"}
-        gap={"medium"}
+        gap={"large"}
         overflow={"hidden"}
         wrap={"true"}
       >
-        <Box width={"medium"}>
+        <Box width={"medium"} gap="large">
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Announcement
@@ -44,8 +44,8 @@ const IndexPage = ({ data }) => {
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Feed
             </Heading>
-            <Box gap="small">
-              {feed.slice(0, 2).map((item, ix) => (
+            <Box gap="medium">
+              {feed.slice(0, 3).map((item, ix) => (
                 <Box round={"xsmall"} background={"#CBE0F3"} pad={"small"}>
                   <Anchor href={item.frontmatter.url} target="_blank">
                     <Heading level={6} key={ix} margin={"none"} fill>
@@ -56,12 +56,11 @@ const IndexPage = ({ data }) => {
                 </Box>
               ))}
               <Text>
-                and <Link to={"/feed"}>{`${feed.length - 2} others`}</Link>
+                and <Link to={"/feed"}>{`${feed.length - 3} other`}</Link>
               </Text>
             </Box>{" "}
           </Section>
-        </Box>
-        <Box>
+
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Portfolio
@@ -202,7 +201,7 @@ const IndexPage = ({ data }) => {
           </Section>
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
-              Reading Notes{" "}
+              Notes{" "}
             </Heading>
 
             <Box gap={"xsmall"} direction={"row-responsive"}>
