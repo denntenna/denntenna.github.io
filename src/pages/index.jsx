@@ -138,24 +138,6 @@ const IndexPage = ({ data }) => {
 
         <Section>
           <Heading level={2} margin={{ bottom: "small", top: "none" }}>
-            Reading Notes{" "}
-          </Heading>
-
-          <Box gap={"xsmall"}>
-            {readingNotes
-              ? readingNotes.map((readingNote) => (
-                  <Box>
-                    <Link to={`/${readingNote.slug}`}>
-                      <Text>{readingNote.frontmatter.title}</Text>
-                    </Link>
-                  </Box>
-                ))
-              : null}
-          </Box>
-        </Section>
-
-        <Section>
-          <Heading level={2} margin={{ bottom: "small", top: "none" }}>
             Logs
           </Heading>
 
@@ -169,6 +151,30 @@ const IndexPage = ({ data }) => {
                   </Box>
                 ))
               : null}
+          </Box>
+        </Section>
+        <Section>
+          <Heading level={2} margin={{ bottom: "small", top: "none" }}>
+            Reading Notes{" "}
+          </Heading>
+
+          <Box gap={"xsmall"} direction={"row-responsive"}>
+            <Text>
+              {readingNotes
+                ? readingNotes.slice(0, 3).map((readingNote, ix) => (
+                    <Text>
+                      <Link to={`/${readingNote.slug}`}>
+                        {`${readingNote.frontmatter.title}`}
+                      </Link>
+                      {`, `}
+                    </Text>
+                  ))
+                : null}
+              and{" "}
+              <Link to={"/reading-notes"}>{`${
+                readingNotes.length - 3
+              } others`}</Link>
+            </Text>
           </Box>
         </Section>
       </Box>
@@ -208,7 +214,7 @@ export const query = graphql`
     }
     readingNotes: allMdx(
       filter: { fileAbsolutePath: { regex: "/.*/src/pages/reading-notes/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { fields: frontmatter___date, order: ASC }
     ) {
       nodes {
         slug
