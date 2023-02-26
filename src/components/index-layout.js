@@ -30,8 +30,8 @@ const IndexLayout = ({ children }) => {
 
   return (
     <Grommet full theme={Theme}>
-      <Box pad={"large"} responsive={true}>
-        <Box width={"large"} alignSelf={"center"}>
+      <Box pad={"small"} responsive={true}>
+        <Box width={"large"} alignSelf={"start"}>
           <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
             <Link to="/">
               <Heading margin={"none"} level={4}>
@@ -58,7 +58,7 @@ const IndexLayout = ({ children }) => {
           <Box height={"1.2em"} />
 
           <Box
-            margin={{ top: "large" }}
+            // margin={{ top: "large" }}
             ref={commentBox}
             className="comments"
           ></Box>

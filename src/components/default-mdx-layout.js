@@ -46,8 +46,8 @@ const DefaultMDXLayout = ({ children }) => {
 
   return (
     <Grommet full theme={Theme}>
-      <Box pad={"large"} responsive={true}>
-        <Box width={"large"} alignSelf={"center"}>
+      <Box pad={"small"} responsive={true}>
+        <Box width={"large"} alignSelf={"start"}>
           <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
             <Link to="/">
               <Heading margin={"none"} level={4}>
@@ -68,8 +68,7 @@ const DefaultMDXLayout = ({ children }) => {
             width={"fit-content"}
           >
             <Text size={"small"}>
-              a digital garden, feed, portfolio and experiment in content
-              creation
+              everything here is a work in progress unless explicitly stated.
             </Text>
           </Box>
           <Box height={"1.2em"} />
