@@ -38,5 +38,8 @@
     "react-helmet": "^6.1.0",
     "react-syntax-highlighter": "^15.5.0",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
