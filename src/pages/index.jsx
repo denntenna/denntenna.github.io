@@ -17,12 +17,12 @@ const IndexPage = ({ data }) => {
     <IndexLayout>
       <Box
         fill
-        direction={"row-responsive"}
         gap={"large"}
         overflow={"hidden"}
         wrap={"true"}
+        direction={"row-responsive"}
       >
-        <Box width={"medium"} gap="large">
+        <Box width={"medium"}>
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Announcement
@@ -44,15 +44,17 @@ const IndexPage = ({ data }) => {
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Feed
             </Heading>
-            <Box gap="medium">
+            <Box gap="xsmall">
               {feed.slice(0, 3).map((item, ix) => (
-                <Box round={"xsmall"} background={"#CBE0F3"} pad={"small"}>
-                  <Anchor href={item.frontmatter.url} target="_blank">
-                    <Heading level={6} key={ix} margin={"none"} fill>
-                      {item.frontmatter.title}
-                    </Heading>
-                  </Anchor>
-                  <Text key={ix}>{item.frontmatter.description}</Text>
+                <Box gap="medium">
+                  <Box round={"xsmall"} background={"#CBE0F3"} pad={"small"}>
+                    <Anchor href={item.frontmatter.url} target="_blank">
+                      <Heading level={6} key={ix} margin={"none"} fill>
+                        {item.frontmatter.title}
+                      </Heading>
+                    </Anchor>
+                    <Text key={ix}>{item.frontmatter.description}</Text>
+                  </Box>
                 </Box>
               ))}
               <Text>
@@ -60,7 +62,8 @@ const IndexPage = ({ data }) => {
               </Text>
             </Box>{" "}
           </Section>
-
+        </Box>
+        <Box width={"large"}>
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Portfolio
@@ -157,6 +160,8 @@ const IndexPage = ({ data }) => {
               </Link>
             </Text>
           </Section>
+        </Box>
+        <Box width={{ max: "100%", min: "small" }}>
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Cheatsheets
@@ -183,7 +188,7 @@ const IndexPage = ({ data }) => {
 
           <Section>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
-              Logs
+              Daily Logs
             </Heading>
 
             <Text>

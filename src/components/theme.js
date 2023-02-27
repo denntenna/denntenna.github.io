@@ -1,7 +1,7 @@
 const Theme = {
   global: {
     font: {
-      family: "Noto Serif Display",
+      family: "Gloock",
     },
     colors: {
       background: "#ffffff",
