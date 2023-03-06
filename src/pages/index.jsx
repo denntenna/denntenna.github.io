@@ -193,7 +193,7 @@ const IndexPage = ({ data }) => {
 
             <Text>
               {logs
-                ? logs.map((log) => (
+                ? logs.slice(0, 3).map((log) => (
                     <Text>
                       <Link to={`/${log.slug}`}>
                         <Text>{log.frontmatter.title}</Text>
@@ -202,6 +202,7 @@ const IndexPage = ({ data }) => {
                     </Text>
                   ))
                 : null}
+              and <Link to={"/logs"}>{`${logs.length - 3} others`}</Link>
             </Text>
           </Section>
           <Section>
