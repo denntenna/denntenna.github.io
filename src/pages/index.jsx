@@ -178,10 +178,10 @@ const IndexPage = ({ data }) => {
                       </Text>
                     ))
                   : null}
-                {/* {" and "}
-              <Link to={"/reading-notes"}>{`${
-                cheatsheets.length - 3
-              } others`}</Link> */}
+                {" and "}
+                <Link to={"/cheatsheets"}>{`${
+                  cheatsheets.length - 3
+                } others`}</Link>
               </Text>
             </Box>
           </Section>
