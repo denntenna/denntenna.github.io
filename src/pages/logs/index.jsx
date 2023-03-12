@@ -26,7 +26,7 @@ const Feed = ({ data }) => {
           here
         </Anchor>
       </Text>
-      <Box gap={"xsmall"} margin={{ top: "medium" }}>
+      <Box gap={"xsmall"} margin={{ top: "medium", bottom: "large" }}>
         {posts
           ? posts.map((post, ix) => (
               <Box key={ix} direction={"row-responsive"} gap={"xsmall"}>
@@ -37,6 +37,22 @@ const Feed = ({ data }) => {
               </Box>
             ))
           : null}
+      </Box>
+
+      <Box margin={{ bottom: "medium" }} gap={"small"} alignContent={"start"}>
+        <StaticImage
+          src="../../images/my-mumbai-map.jpg"
+          alt={"A handrawn labelled map of Mumbai"}
+        />
+        <Text>My Mumbai Map</Text>
+      </Box>
+
+      <Box margin={{ bottom: "medium" }} gap={"small"} alignContent={"start"}>
+        <StaticImage
+          src="../../images/vs-mint-article.png"
+          alt={"A picture of Mint Lounge Article on Viral Spiral"}
+        />
+        <Text>Viral Spiral in the Mint Lounge</Text>
       </Box>
     </DefaultMDXLayout>
   );

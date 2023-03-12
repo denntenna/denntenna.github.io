@@ -80,6 +80,9 @@ const ReadingNotes = ({ data }) => {
             : null}
         </Box>
       </Box>
+      {/* <Box margin={{ bottom: "medium" }}>
+        <StaticImage src="../images/udr-skyline.png" alt={"Udaipur Skyline"} />
+      </Box> */}
     </DefaultMDXLayout>
   );
 };
