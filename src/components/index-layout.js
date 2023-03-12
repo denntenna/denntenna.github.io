@@ -30,18 +30,18 @@ const IndexLayout = ({ children }) => {
 
   return (
     <Grommet full theme={Theme}>
-      <Box responsive={true}>
+      <Box responsive={true} pad={"small"}>
         <Box width={"large"} alignSelf={"start"}>
-          <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
+          <Box direction={"row-responsive"} gap={"medium"} align={"baseline"}>
             <Link to="/">
               <Heading margin={"none"} level={4}>
                 denntenna
               </Heading>
             </Link>
             <Box gap={"small"}>
-              {/* <Link to={"/about"} color={"red"}>
-							<Text size={"small"}>author</Text>
-						</Link> */}
+              <Link to={"/about"} color={"red"}>
+                <Text size={"small"}>about</Text>
+              </Link>
             </Box>
           </Box>
           <Box height={"0.2em"} />

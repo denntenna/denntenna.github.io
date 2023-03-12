@@ -38,19 +38,19 @@ const IndexPage = ({ data }) => {
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Feed
             </Heading>
-            <Box gap="medium">
-              {feed.slice(0, 3).map((item, ix) => (
-                <Box>
+            <Box gap="xsmall">
+              <Box gap={"small"}>
+                {feed.slice(0, 3).map((item, ix) => (
                   <Box>
-                    <Anchor href={item.frontmatter.url} target="_blank">
-                      <Heading level={5} key={ix} margin={"none"} fill>
+                    <Text>
+                      <Anchor href={item.frontmatter.url} target="_blank">
                         {item.frontmatter.title}
-                      </Heading>
-                    </Anchor>
+                      </Anchor>
+                    </Text>
                     <Text key={ix}>{item.frontmatter.description}</Text>
                   </Box>
-                </Box>
-              ))}
+                ))}
+              </Box>
               <Text>
                 and <Link to={"/feed"}>{`${feed.length - 3} other`}</Link>
               </Text>
