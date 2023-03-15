@@ -65,7 +65,6 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
-        slug
         frontmatter {
           title
           cover_image

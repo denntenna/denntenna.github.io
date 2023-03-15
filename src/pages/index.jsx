@@ -192,7 +192,11 @@ const IndexPage = ({ data }) => {
                 ? logs.slice(0, 3).map((log) => (
                     <Text>
                       <Link to={`/${log.slug}`}>
-                        <Text>{log.frontmatter.title}</Text>
+                        <Text>
+                          {log.frontmatter.title +
+                            " : " +
+                            log.frontmatter.description}
+                        </Text>
                       </Link>
                       {", "}
                     </Text>
