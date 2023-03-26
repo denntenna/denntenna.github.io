@@ -1,0 +1,122 @@
+---
+title: Python
+---
+
+# Python
+
+## Footguns
+
+- difference between `is` and `==`
+
+
+## Tips and Tricks
+- from time import sleep
+- Open your current file in interactive mode to inspect/debug it
+`python -i file.py`
+
+## Lists
+`a = [1, 2, 3]
+
+Python now has tools inspired from haskell to operate with lists in the module itertools. Documentation is [here](https://docs.python.org/3/library/itertools.html)
+
+Use a list as stack
+```python
+stack = [2,3,4]
+stack.append(5)
+stack.append(6)
+stack.pop()
+stack.pop()
+```
+
+Use a list as Queue
+```python
+from collections import deque
+queue = deque(["apple", "banana", "cat"])
+queue.append("dog")
+queue.append("elephant")
+queue.popleft()
+queue.popleft()
+```
+List Comprehensions
+a concise way to create list
+> A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses. The result will be a new list resulting from evaluating the expression in the context of the for and if clauses which follow it. 
+
+List Display and Comprehension
+`a = [x*x for x in range(10)]`
+
+## Generators
+
+If your function uses the yield command, its a generator.
+
+```python
+def natural_numbers():
+    i = 0
+    while True:
+        yield i
+        i ++
+```
+
+You can pass generators to functions as paramters by prefixing `*` to the parameter name - `def fun(*gen)`
+
+Multiple ways to use iterators
+
+- with a for loop
+
+```python
+    for num in natural_numbers:
+        print(num)
+```
+
+inline usage
+
+```python
+  value = sum(next(t) for n in slice(natural_numbers, 10))
+```
+
+Use yield without a value
+
+Simply writing the command yield, yields control to the calling code. 
+
+- Convert a generator into a context manager 
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def db_test(cur):
+  cur.execute('create table points(x int, y int)')
+  try:
+    yield
+  finally:
+    cur.execute('drop table points ')
+```
+
+## Class
+
+Special functions in a Class
+
+- `__init__` : constructor
+- `__repr__` : print your class sensibly
+- `__add__` : operator overload the + operator
+- `__iter__`, `__next__` : make the class iterable
+  - raise StopIteration()
+- `__enter__`, `__exit__` : make your class a ContextManger, with setup and teardown functions. 
+
+## Internals
+
+- see what happens in the python bytecode
+
+```python
+from dis import dis
+dis(function_name)
+```
+
+- inspect source code of a function in runtime
+
+```python
+from inspect import getsource
+getsource(add)
+```
+
+## References
+
+- [So you want to be a python expert](https://www.youtube.com/watch?v=cKPlPJyQrt4) by James Powell

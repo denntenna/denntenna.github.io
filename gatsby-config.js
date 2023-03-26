@@ -10,14 +10,14 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Gloock", "Noto Sans"],
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-web-font-loader",
+    //   options: {
+    //     google: {
+    //       families: ["Gloock", "Noto Sans"],
+    //     },
+    //   },
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -47,6 +47,12 @@ module.exports = {
               maxWidth: 1200,
             },
           },
+          // {
+          //   resolve: `gatsby-remark-highlight-code`,
+          //   options: {
+          //     terminal: "synthwave",
+          //   },
+          // },
         ],
       },
     },
