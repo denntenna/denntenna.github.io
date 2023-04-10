@@ -1,0 +1,15 @@
+---
+title: Sound Generation in Linux
+description: handy cli commands
+date: 08-04-2023
+---
+
+# Simple Sound Generation in Linux
+
+## Using aplay
+
+command-line sound recorder and player for ALSA soundcard driver. aplay is usually comes pre-installed on linux.
+Like a lot of linux utilities, it is piping friendly, which means that you can generate a stream of "characters" from a script and pipe it to aplay. This is a quick way to play around with computer programmatic music generation and DSP.
+Since you don't have to deal with the sound hardware logic, your script is only concerned with generating the numerical stream representing the audio samples s, aplay does the rest to make the numbers audible.
+
+./script | aplay -f cd

@@ -8,18 +8,21 @@ title: Python
 
 - difference between `is` and `==`
 
-
 ## Tips and Tricks
+
 - from time import sleep
 - Open your current file in interactive mode to inspect/debug it
-`python -i file.py`
+  `python -i file.py`
+- String templating `print("%s : %s" % (name, age))`
 
 ## Lists
+
 `a = [1, 2, 3]
 
 Python now has tools inspired from haskell to operate with lists in the module itertools. Documentation is [here](https://docs.python.org/3/library/itertools.html)
 
 Use a list as stack
+
 ```python
 stack = [2,3,4]
 stack.append(5)
@@ -29,6 +32,7 @@ stack.pop()
 ```
 
 Use a list as Queue
+
 ```python
 from collections import deque
 queue = deque(["apple", "banana", "cat"])
@@ -37,9 +41,11 @@ queue.append("elephant")
 queue.popleft()
 queue.popleft()
 ```
+
 List Comprehensions
 a concise way to create list
-> A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses. The result will be a new list resulting from evaluating the expression in the context of the for and if clauses which follow it. 
+
+> A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses. The result will be a new list resulting from evaluating the expression in the context of the for and if clauses which follow it.
 
 List Display and Comprehension
 `a = [x*x for x in range(10)]`
@@ -75,9 +81,10 @@ inline usage
 
 Use yield without a value
 
-Simply writing the command yield, yields control to the calling code. 
+Simply writing the command yield, yields control to the calling code.
 
-- Convert a generator into a context manager 
+- Convert a generator into a context manager
+
 ```python
 from contextlib import contextmanager
 
@@ -99,7 +106,7 @@ Special functions in a Class
 - `__add__` : operator overload the + operator
 - `__iter__`, `__next__` : make the class iterable
   - raise StopIteration()
-- `__enter__`, `__exit__` : make your class a ContextManger, with setup and teardown functions. 
+- `__enter__`, `__exit__` : make your class a ContextManger, with setup and teardown functions.
 
 ## Internals
 
@@ -117,6 +124,63 @@ from inspect import getsource
 getsource(add)
 ```
 
+# Ecosystem
+
+- [Eventlet](http://eventlet.net/doc/index.html) brings concurrency to python
+
 ## References
 
 - [So you want to be a python expert](https://www.youtube.com/watch?v=cKPlPJyQrt4) by James Powell
+- [Transforming Code into Beautiful Idiomatic Python](https://www.youtube.com/watch?v=OSGv2VnC0go) by Raymond Hettinger
+- Documentation for [Collections](https://docs.python.org/3/library/collections.html) 
+
+# Starting a new Python project
+
+# Pipenv for package management and virtual environment
+
+
+## Notes from Idiomatic Python
+
+- ChainMap
+- Clarify function calls with keyword arguments
+  - You are sacrificing performance but improving developer time
+- named tuples 
+```
+from collections import namedtuple
+
+
+def named_tuples(a: int):
+    Results = namedtuple("Result", ["status", "payload"])
+    if a < 0:
+        return Results("error", {})
+    if a > 0:
+        return Results("success", {"number": a})
+
+
+print(named_tuples(3))
+print(named_tuples(-1))
+```
+
+- Updating Multiple state variables
+- Decorators and Context Managers : Help separate business logic from administrative ones
+
+
+# Async
+Notes from [Keynote on Concurrency, PyBay 2017](https://www.youtube.com/watch?v=9zinZmE3Ogk)
+Goal : When to use threads, processes, asyncs. Advantages and disadvantages
+
+
+# Functional Programming
+### Creating partial functions - [documenttion](https://docs.python.org/3/library/functools.html#functools.partial) 
+This reminds me of currying in haskell
+```python
+def user(name, age, role):
+    return {"name":name, "age":age, "role":role}
+
+manager = partial(user, role="manager")
+admin   = partial(user, role="admin")
+
+print(user(name="denny", age="32", role="user"))
+print(manager(name="denny", age="38"))
+print(admin(name="denny", age=42))
+```
