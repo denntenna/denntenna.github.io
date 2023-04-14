@@ -47,12 +47,12 @@ module.exports = {
               maxWidth: 1200,
             },
           },
-          // {
-          //   resolve: `gatsby-remark-highlight-code`,
-          //   options: {
-          //     terminal: "synthwave",
-          //   },
-          // },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: "carbon",
+            },
+          },
         ],
       },
     },
