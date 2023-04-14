@@ -132,19 +132,19 @@ getsource(add)
 
 - [So you want to be a python expert](https://www.youtube.com/watch?v=cKPlPJyQrt4) by James Powell
 - [Transforming Code into Beautiful Idiomatic Python](https://www.youtube.com/watch?v=OSGv2VnC0go) by Raymond Hettinger
-- Documentation for [Collections](https://docs.python.org/3/library/collections.html) 
+- Documentation for [Collections](https://docs.python.org/3/library/collections.html)
 
 # Starting a new Python project
 
 # Pipenv for package management and virtual environment
-
 
 ## Notes from Idiomatic Python
 
 - ChainMap
 - Clarify function calls with keyword arguments
   - You are sacrificing performance but improving developer time
-- named tuples 
+- named tuples
+
 ```
 from collections import namedtuple
 
@@ -164,16 +164,17 @@ print(named_tuples(-1))
 - Updating Multiple state variables
 - Decorators and Context Managers : Help separate business logic from administrative ones
 
-
 # Async
+
 Notes from [Keynote on Concurrency, PyBay 2017](https://www.youtube.com/watch?v=9zinZmE3Ogk)
 Goal : When to use threads, processes, asyncs. Advantages and disadvantages
 
-
 # Functional Programming
 
-### Creating partial functions - [documenttion](https://docs.python.org/3/library/functools.html#functools.partial) 
+### Creating partial functions - [documenttion](https://docs.python.org/3/library/functools.html#functools.partial)
+
 This reminds me of currying in haskell
+
 ```python
 def user(name, age, role):
     return {"name":name, "age":age, "role":role}
@@ -184,4 +185,51 @@ admin   = partial(user, role="admin")
 print(user(name="denny", age="32", role="user"))
 print(manager(name="denny", age="38"))
 print(admin(name="denny", age=42))
+```
+
+### Pattern and Matching
+
+https://peps.python.org/pep-0636/
+How to implement delegation using pattern matching
+
+Requires python 3.10+
+
+```python
+action_pass = {"type": "pass", "payload": {"name": "denny"}}
+action_keep = {"type": "keep", "payload": {}}
+
+action = action_pass
+
+match action:
+    case {type, payload}:
+        print(type)
+```
+
+## Live Development Process with Reload
+
+Uses the inotify syscall on linux to trigger reload of the program upon file changes
+
+![Cli Gif](/python-live-reload.gif)
+
+```python
+import inotify.adapters
+import subprocess
+
+def watch():
+    i = inotify.adapters.Inotify()
+
+    i.add_watch('./')
+
+    for event in i.event_gen(yield_nones=False):
+        (_, type_names, path, filename) = event
+
+        #print("PATH=[{}] FILENAME=[{}] EVENT_TYPES=[{}]".format(path,filename,type_names))
+        for type in type_names:
+            #print("type: {} path: {} filename: {}".format(type, path, filename))
+            if type == "IN_CLOSE_WRITE" and ".py" in filename:
+                print('reload file')
+                subprocess.run(["python", "hello.py"])
+
+if __name__ == '__main__':
+    watch()
 ```
