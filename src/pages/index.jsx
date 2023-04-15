@@ -232,7 +232,12 @@ const IndexPage = ({ data }) => {
         </Box>
         <Box width={"medium"} round overflow={"hidden"}>
           <Section width={"medium"}>
-            <StaticImage src={"../images/sjngd-portrait.jpg"} />
+            <StaticImage
+              src={"../images/sjngd-portrait.jpg"}
+              alt="author picture"
+              placeholder="blurred"
+              width={1024}
+            />
           </Section>
         </Box>
       </Box>
