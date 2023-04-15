@@ -184,7 +184,7 @@ const IndexPage = ({ data }) => {
 
           <Section width={"medium"}>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
-              Daily Logs
+              Logs
             </Heading>
 
             <Text>

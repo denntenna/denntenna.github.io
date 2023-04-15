@@ -2,7 +2,8 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import DefaultMDXLayout from "../../components/default-mdx-layout";
 import { StaticImage } from "gatsby-plugin-image";
-import { Box, Heading, Text, Anchor } from "grommet";
+import { Box, Heading, Text, Anchor, Image } from "grommet";
+import { LogImage } from "../../components/Image";
 
 const Feed = ({ data }) => {
   const posts = data.allMdx.nodes;
@@ -39,21 +40,24 @@ const Feed = ({ data }) => {
           : null}
       </Box>
 
-      <Box margin={{ bottom: "medium" }} gap={"small"} alignContent={"start"}>
+      <LogImage caption="First Pizza in the new oven">
+        <StaticImage
+          src={"../../images/pizza-new-oven.jpg"}
+          alt={"First Pizza in the new oven"}
+        />
+      </LogImage>
+      <LogImage caption="New visiting cards">
+        <Image src={"/tattle-card.gif"} alt={"Tattle Visisting Cards"} />
+      </LogImage>
+      <LogImage caption="A handrawn labelled map of Mumbai">
         <StaticImage
           src="../../images/my-mumbai-map.jpg"
           alt={"A handrawn labelled map of Mumbai"}
         />
-        <Text>My Mumbai Map</Text>
-      </Box>
-
-      <Box margin={{ bottom: "medium" }} gap={"small"} alignContent={"start"}>
-        <StaticImage
-          src="../../images/vs-mint-article.png"
-          alt={"A picture of Mint Lounge Article on Viral Spiral"}
-        />
-        <Text>Viral Spiral in the Mint Lounge</Text>
-      </Box>
+      </LogImage>
+      <LogImage caption="A picture of Mint Lounge Article on Viral Spiral">
+        <StaticImage src="../../images/vs-mint-article.png" alt={""} />
+      </LogImage>
     </DefaultMDXLayout>
   );
 };
