@@ -14,6 +14,7 @@ title: Python
 - Open your current file in interactive mode to inspect/debug it
   `python -i file.py`
 - String templating `print("%s : %s" % (name, age))`
+- Pipenv environments are stored in `~/.local/share/virtualenvs`. Can be deleted as part of system cleanup
 
 ## Lists
 
@@ -133,6 +134,7 @@ getsource(add)
 - [So you want to be a python expert](https://www.youtube.com/watch?v=cKPlPJyQrt4) by James Powell
 - [Transforming Code into Beautiful Idiomatic Python](https://www.youtube.com/watch?v=OSGv2VnC0go) by Raymond Hettinger
 - Documentation for [Collections](https://docs.python.org/3/library/collections.html)
+- An opinionated [guide](https://docs.python-guide.org/) to python
 
 # Starting a new Python project
 
@@ -233,3 +235,25 @@ def watch():
 if __name__ == '__main__':
     watch()
 ```
+
+# Numerical and Scientific Computing
+
+```python
+import numpy as np
+import plotly.express as px
+
+x = np.linspace(-np.pi, np.pi, 50)
+y = np.array([np.sin(i) for i in x])
+fig = px.scatter(x=x, y=y)
+fig.show()
+```
+
+![numpy simple plot](../../images/plotly-numpy-101.png)
+
+- [Statistics](https://numpy.org/doc/stable/reference/routines.statistics.html)
+- [Randomness](https://numpy.org/doc/stable/reference/random/index.html)
+- [Maths] (https://numpy.org/doc/stable/reference/routines.math.html)
+- [Logic] (https://numpy.org/doc/stable/reference/routines.logic.html)
+- [Linear Algebra] (https://numpy.org/doc/stable/reference/routines.logic.html)
+
+SciPy, Pandas and OpenCV use numpy array as the common format for data exchange
