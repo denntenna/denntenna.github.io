@@ -31,10 +31,12 @@ const Feed = ({ data }) => {
         {posts
           ? posts.map((post, ix) => (
               <Box key={ix} direction={"row-responsive"} gap={"xsmall"}>
-                <Link to={`/${post.slug}`}>
-                  <Text weight={600}> {post.frontmatter.title}</Text>
-                </Link>
-                <Text>{post.frontmatter.description}</Text>
+                <Text>
+                  <Link to={`/${post.slug}`}>
+                    <Text weight={600}> {post.frontmatter.title}</Text>
+                  </Link>
+                  <Text>{" " + post.frontmatter.description}</Text>
+                </Text>
               </Box>
             ))
           : null}
