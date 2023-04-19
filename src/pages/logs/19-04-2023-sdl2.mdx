@@ -1,0 +1,113 @@
+---
+title: 19-04-2023-sdl2
+description: Barebones sdl2 usage for sound generation
+date: 19-04-2023
+---
+
+## Prerequisites
+
+Install sdl2 on your linux machine. These can work on ubuntu :
+
+```
+sudo apt-get install libsdl2-2.0-0
+sudo apt-get install libsdl2-dev
+```
+
+## Hello Sound
+
+```c
+#include <SDL.h>
+#include <stdio.h>
+
+#define FREQ 440 /* the frequency we want */
+
+unsigned int audio_pos; /* which sample we are up to */
+int audio_len;          /* how many samples left to play, stops when <= 0 */
+float audio_frequency;  /* audio frequency in cycles per sample */
+float audio_volume;     /* audio volume, 0 - ~32000 */
+
+/* dummy callback */
+void MyAudioCallback(void *data, Uint8 *stream, int len)
+{
+  len /= 2; /* 16 bit */
+  int i;
+  Sint16 *buf = (Sint16 *)stream;
+  for (i = 0; i < len; i++)
+  {
+    buf[i] = audio_volume * sin(2 * M_PI * audio_pos * audio_frequency);
+    audio_pos++;
+  }
+  audio_len -= len;
+  return;
+}
+
+int main()
+{
+  printf("hi");
+  int i;
+
+  if (SDL_Init(SDL_INIT_AUDIO))
+  {
+    printf("[SDL] Failed to initialize: %s\n", SDL_GetError());
+    return 1;
+  }
+
+  /* print the audio driver we are using */
+  printf("[SDL] Audio driver: %s\n", SDL_GetCurrentAudioDriver());
+
+  /* pass it 0 for playback */
+  int numAudioDevices = SDL_GetNumAudioDevices(0);
+
+  /* print the audio devices that we can see */
+  printf("[SDL] %d audio devices:", numAudioDevices);
+  for (i = 0; i < numAudioDevices; i++)
+    printf(" \'%s\'", SDL_GetAudioDeviceName(i, 0)); /* again, 0 for playback */
+  printf("\n");
+
+  SDL_AudioSpec want, have;
+  SDL_zero(want);
+
+  /* a general specification */
+  want.freq = 44100;
+  want.format = AUDIO_S16;
+  want.channels = 1;               /* 1, 2, 4, or 6 */
+  want.samples = 4096;             /* power of 2, or 0 and env SDL_AUDIO_SAMPLES is used */
+  want.callback = MyAudioCallback; /* can not be NULL */
+
+  printf("[SDL] Desired - frequency: %d format: f %d s %d be %d sz %d channels: %d samples: %d\n", want.freq, SDL_AUDIO_ISFLOAT(want.format), SDL_AUDIO_ISSIGNED(want.format), SDL_AUDIO_ISBIGENDIAN(want.format), SDL_AUDIO_BITSIZE(want.format), want.channels, want.samples);
+
+  /* open audio device, allowing any changes to the specification */
+  SDL_AudioDeviceID dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_ANY_CHANGE);
+
+  if (!dev)
+  {
+    printf("[SDL] Failed to open audio device: %s\n", SDL_GetError());
+    SDL_Quit();
+    return 1;
+  }
+
+  printf("[SDL] Obtained - frequency: %d format: f %d s %d be %d sz %d channels: %d samples: %d\n", have.freq, SDL_AUDIO_ISFLOAT(have.format), SDL_AUDIO_ISSIGNED(have.format), SDL_AUDIO_ISBIGENDIAN(have.format), SDL_AUDIO_BITSIZE(have.format), have.channels, have.samples);
+
+  audio_len = have.freq * 5; /* 5 seconds */
+  audio_pos = 0;
+  audio_frequency = 1.0 * FREQ / have.freq; /* 1.0 to make it a float */
+  audio_volume = 6000;                      /* ~1/5 max volume */
+
+  SDL_PauseAudioDevice(dev, 0); /* play! */
+
+  while (audio_len > 0)
+  {
+    SDL_Delay(500);
+  }
+
+  SDL_CloseAudioDevice(dev);
+  SDL_Quit();
+
+  return 0;
+  printf("bye");
+}
+```
+
+## Running the application
+
+`gcc -o trtl test.c `sdl2-config --cflags --libs` -lSDL2main -lm`
