@@ -5,6 +5,7 @@ export function LogImage({ children, caption }) {
   return (
     <Box
       width={"medium"}
+      height={"fit-content"}
       margin={{ bottom: "medium" }}
       gap={"small"}
       alignContent={"start"}

@@ -27,7 +27,7 @@ const Content = styled.div`
   }
 `;
 
-const DefaultMDXLayout = ({ children }) => {
+const DefaultMDXLayout = ({ children, width }) => {
   const commentBox = useRef(null);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const DefaultMDXLayout = ({ children }) => {
   return (
     <Grommet full theme={Theme}>
       <Box pad={"small"} responsive={true}>
-        <Box width={"large"} alignSelf={"start"}>
+        <Box width={width ? width : "large"} alignSelf={"start"}>
           <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
             <Link to="/">
               <Heading margin={"none"} level={4}>
