@@ -27,7 +27,7 @@ const Content = styled.div`
   }
 `;
 
-const DefaultMDXLayout = ({ children, width }) => {
+const DefaultMDXLayout = ({ children, width, path }) => {
   const commentBox = useRef(null);
 
   useEffect(() => {
@@ -51,11 +51,19 @@ const DefaultMDXLayout = ({ children, width }) => {
       <Box pad={"small"} responsive={true}>
         <Box width={width ? width : "large"} alignSelf={"start"}>
           <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
-            <Link to="/">
-              <Heading margin={"none"} level={4}>
-                denntenna
-              </Heading>
-            </Link>
+            <Box direction={"row-responsive"} gap="xsmall" align="center">
+              <Link to="/">
+                <Heading margin={"none"} level={4}>
+                  denntenna
+                </Heading>
+              </Link>
+              {path ? (
+                <Box direction={"row-responsive"} gap="xsmall" align="center">
+                  <Text size={"xsmall"}>{"\\"}</Text>
+                  <Text>{path}</Text>
+                </Box>
+              ) : null}
+            </Box>
             <Box gap={"small"}>
               {/* <Link to={"/about"} color={"red"}>
 							<Text size={"small"}>author</Text>
@@ -63,16 +71,7 @@ const DefaultMDXLayout = ({ children, width }) => {
             </Box>
           </Box>
           <Box height={"0.2em"} />
-          <Box
-            background={"neutral-2"}
-            round={"xsmall"}
-            pad={"xsmall"}
-            width={"fit-content"}
-          >
-            <Text size={"small"}>
-              everything here is a work in progress unless explicitly stated.
-            </Text>
-          </Box>
+
           <Box height={"1.2em"} />
           <Content>{children}</Content>
 
