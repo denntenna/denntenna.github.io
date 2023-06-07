@@ -27,7 +27,7 @@ const Content = styled.div`
   }
 `;
 
-const DefaultMDXLayout = ({ children, width, path }) => {
+const DefaultMDXLayout = ({ children, width, breadcrumb }) => {
   const commentBox = useRef(null);
 
   useEffect(() => {
@@ -57,10 +57,10 @@ const DefaultMDXLayout = ({ children, width, path }) => {
                   denntenna
                 </Heading>
               </Link>
-              {path ? (
+              {breadcrumb ? (
                 <Box direction={"row-responsive"} gap="xsmall" align="center">
                   <Text size={"xsmall"}>{"\\"}</Text>
-                  <Text>{path}</Text>
+                  <Text>{breadcrumb}</Text>
                 </Box>
               ) : null}
             </Box>
@@ -87,3 +87,23 @@ const DefaultMDXLayout = ({ children, width, path }) => {
 };
 
 export default DefaultMDXLayout;
+
+export const query = graphql`
+  query PostQuery {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/.*/src/pages/logs/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        slug
+        frontmatter {
+          title
+          cover_image
+          date
+          description
+        }
+        fileAbsolutePath
+      }
+    }
+  }
+`;

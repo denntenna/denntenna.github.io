@@ -53,7 +53,7 @@ const Feed = ({ data }) => {
   const posts = data.allMdx.nodes;
   // const size = React.useContext(ResponsiveContext);
   return (
-    <DefaultMDXLayout width="100%" path="logs">
+    <DefaultMDXLayout width="100%" breadcrumb="logs">
       {/* <Text>{size}</Text> */}
       <Box direction="row-responsive" gap="large">
         <Box direction="column" gap="medium" wrap={true} responsive>

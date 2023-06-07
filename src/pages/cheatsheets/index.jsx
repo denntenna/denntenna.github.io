@@ -8,9 +8,8 @@ const Feed = ({ data }) => {
   const posts = data.allMdx.nodes;
   console.log(data);
   return (
-    <DefaultMDXLayout>
+    <DefaultMDXLayout breadcrumb="cheetsheets">
       <Box height={"12em"}>
-        <Heading level={2}>Cheatsheets</Heading>
         <StaticImage
           src="../../images/logs_cover.jpg"
           alt={"A picture of a notebook with handwritten notes"}

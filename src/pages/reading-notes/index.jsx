@@ -9,8 +9,7 @@ const ReadingNotes = ({ data }) => {
 
   console.log(data);
   return (
-    <DefaultMDXLayout>
-      <Heading level={2}>Notes</Heading>
+    <DefaultMDXLayout breadcrumb="reading notes">
       <Box direction="row-responsive" gap="medium">
         <Box width={"medium"} gap="medium">
           <Box>
