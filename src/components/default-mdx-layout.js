@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Theme from "./theme";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { graphql } from "gatsby";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
