@@ -8,8 +8,7 @@ const Feed = ({ data }) => {
   const posts = data.allMdx.nodes;
 
   return (
-    <DefaultMDXLayout>
-      <Heading level={2}>Feed</Heading>
+    <DefaultMDXLayout breadcrumb="feed">
       <Box direction={"row-responsive"} gap={"medium"}>
         <Box width={"medium"}>
           <Box>

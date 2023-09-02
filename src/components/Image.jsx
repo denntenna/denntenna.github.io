@@ -4,8 +4,8 @@ import { Box, Text } from "grommet";
 export function LogImage({ children, caption }) {
   return (
     <Box
-      width={"medium"}
-      margin={{ bottom: "medium" }}
+      width={"small"}
+      height={"small"}
       gap={"small"}
       alignContent={"start"}
       border

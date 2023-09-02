@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Theme from "./theme";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { graphql } from "gatsby";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
@@ -27,7 +28,7 @@ const Content = styled.div`
   }
 `;
 
-const DefaultMDXLayout = ({ children }) => {
+const DefaultMDXLayout = ({ children, width, breadcrumb }) => {
   const commentBox = useRef(null);
 
   useEffect(() => {
@@ -49,13 +50,21 @@ const DefaultMDXLayout = ({ children }) => {
   return (
     <Grommet full theme={Theme}>
       <Box pad={"small"} responsive={true}>
-        <Box width={"large"} alignSelf={"start"}>
+        <Box width={width ? width : "large"} alignSelf={"start"}>
           <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
-            <Link to="/">
-              <Heading margin={"none"} level={4}>
-                denntenna
-              </Heading>
-            </Link>
+            <Box direction={"row-responsive"} gap="xsmall" align="center">
+              <Link to="/">
+                <Heading margin={"none"} level={4}>
+                  denntenna
+                </Heading>
+              </Link>
+              {breadcrumb ? (
+                <Box direction={"row-responsive"} gap="xsmall" align="center">
+                  <Text size={"xsmall"}>{"\\"}</Text>
+                  <Text>{breadcrumb}</Text>
+                </Box>
+              ) : null}
+            </Box>
             <Box gap={"small"}>
               {/* <Link to={"/about"} color={"red"}>
 							<Text size={"small"}>author</Text>
@@ -63,16 +72,7 @@ const DefaultMDXLayout = ({ children }) => {
             </Box>
           </Box>
           <Box height={"0.2em"} />
-          <Box
-            background={"neutral-2"}
-            round={"xsmall"}
-            pad={"xsmall"}
-            width={"fit-content"}
-          >
-            <Text size={"small"}>
-              everything here is a work in progress unless explicitly stated.
-            </Text>
-          </Box>
+
           <Box height={"1.2em"} />
           <Content>{children}</Content>
 
@@ -88,3 +88,23 @@ const DefaultMDXLayout = ({ children }) => {
 };
 
 export default DefaultMDXLayout;
+
+export const query = graphql`
+  query PostQuery {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/.*/src/pages/logs/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        slug
+        frontmatter {
+          title
+          cover_image
+          date
+          description
+        }
+        fileAbsolutePath
+      }
+    }
+  }
+`;
