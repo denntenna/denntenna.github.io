@@ -146,13 +146,16 @@ const IndexPage = ({ data }) => {
                 <Text size="medium">Live Coding Workout Mix</Text>
               </Link>
               {", "}
-              <Link to={`/oif`}>
-                <Text>Opinions In Formation</Text>
-              </Link>
+
+              <Anchor href={"https://puddle.vip"}>puddle</Anchor>
+
               {" and "}
-              <Link to={`/chronospatial`}>
+              <Anchor href={"https://denntenna.github.io/oif"}>
+                Opinions In Formation
+              </Anchor>
+              {/* <Link to={`/chronospatial`}>
                 <Text>Chronospatial</Text>
-              </Link>
+              </Link> */}
             </Text>
           </Section>
         </Box>
