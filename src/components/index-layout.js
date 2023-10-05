@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Theme from "./theme";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import TagBubble from "./TagBubble";
 
 const Content = styled(Box)`
   p,
@@ -31,31 +32,27 @@ const IndexLayout = ({ children }) => {
   return (
     <Grommet full theme={Theme}>
       <Box responsive={true} pad={"small"}>
-        <Box width={"large"} alignSelf={"start"}>
+        <Box fill alignSelf={"start"}>
           <Box direction={"row-responsive"} gap={"medium"} align={"baseline"}>
             <Link to="/">
               <Heading margin={"none"} level={4}>
                 denntenna
               </Heading>
             </Link>
+            <Box flex={"grow"}>
+              <Box direction={"row-responsive"} wrap={true} gap={"xsmall"}>
+                <TagBubble tag={"#information-disorder"} />
+                <TagBubble tag={"#hypermedia"} />
+                <TagBubble tag={"#p2p"} />
+                <TagBubble tag={"#livecoding"} />
+              </Box>
+            </Box>
             <Box gap={"small"}>
               <Link to={"/about"} color={"red"}>
                 <Text size={"small"}>about</Text>
               </Link>
             </Box>
           </Box>
-          <Box height={"0.2em"} />
-          <Box
-            background={"neutral-2"}
-            round={"xsmall"}
-            pad={"xsmall"}
-            width={"fit-content"}
-          >
-            <Text size={"small"}>
-              everything here is a work in progress unless explicitly stated.
-            </Text>
-          </Box>
-          <Box height={"1.2em"} />
 
           <Box
             // margin={{ top: "large" }}
