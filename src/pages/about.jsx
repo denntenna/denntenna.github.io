@@ -9,7 +9,7 @@ const AboutPage = () => {
   return (
     <DefaultMDXLayout>
       <Box direction={"row-responsive"}>
-        <Box width={"medium"}>
+        <Box width={"large"}>
           <Heading level={2}>About</Heading>
           <Box direction={"row-responsive"} gap={"medium"}>
             <Box width={"small"} height={"small"}>
@@ -17,6 +17,36 @@ const AboutPage = () => {
                 src="../images/dp-udr.jpg"
                 alt={"An image of the author infront of a lake"}
               />
+            </Box>
+            <Box width={"medium"}>
+              <form
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "3px",
+                  textAlign: "center",
+                }}
+                action="https://tinyletter.com/denntenna"
+                method="post"
+                target="popupwindow"
+                onsubmit="window.open('https://tinyletter.com/denntenna', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+              >
+                <Box>
+                  <Text size={"medium"}> Subscribe for updates</Text>
+                  <Text weight={300} size={"small"}>
+                    (sent out once a month)
+                  </Text>
+                </Box>
+                <p>
+                  <input
+                    type="text"
+                    style={{ width: "140px" }}
+                    name="email"
+                    id="tlemail"
+                  />
+                </p>
+                <input type="hidden" value="1" name="embed" />
+                <input type="submit" value="Subscribe" />
+              </form>
             </Box>
           </Box>
         </Box>
@@ -31,13 +61,16 @@ const AboutPage = () => {
         has a hydra like structure with various heads - digital garden, wiki,
         social feed, CMS, publication platform etc. Have fun exploring!
       </Paragraph>
+
+      <Box height={"2.4em"}></Box>
+
       <Box>
         <iframe
           src="https://github.com/sponsors/dennyabrain/button"
           title="Sponsor dennyabrain"
           height="35"
           width="116"
-          style={{ border: "0" }}
+          // style={{ border: "0" }}
         ></iframe>
       </Box>
     </DefaultMDXLayout>
