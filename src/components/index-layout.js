@@ -41,10 +41,10 @@ const IndexLayout = ({ children }) => {
             </Link>
             <Box flex={"grow"}>
               <Box direction={"row-responsive"} wrap={true} gap={"xsmall"}>
+                <TagBubble tag={"#online-harms"} />
                 <TagBubble tag={"#information-disorder"} />
                 <TagBubble tag={"#hypermedia"} />
                 <TagBubble tag={"#p2p"} />
-                <TagBubble tag={"#livecoding"} />
               </Box>
             </Box>
             <Box gap={"small"}>

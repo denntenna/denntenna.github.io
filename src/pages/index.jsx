@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
   return (
     <IndexLayout>
       <Box fill overflow={"hidden"} wrap={"true"} direction={"row-responsive"}>
-        <Box width={"medium"}>
+        {/* <Box width={"medium"}>
           <Section width={"medium"}>
             <Heading level={2} margin={{ bottom: "small", top: "none" }}>
               Announcement
@@ -56,7 +56,7 @@ const IndexPage = ({ data }) => {
               </Text>
             </Box>{" "}
           </Section>
-        </Box>
+        </Box> */}
 
         <Box width={"medium"}>
           <Section width={"medium"}>
