@@ -71,6 +71,29 @@ const DefaultMDXLayout = ({ children, width, breadcrumb }) => {
 						</Link> */}
             </Box>
           </Box>
+          <Box direction={"row-responsive"}>
+            <Link to="/portfolio">
+              <Box pad="small">
+                <Text size="small">Work</Text>
+              </Box>
+            </Link>
+            <Link to="/logs">
+              <Box pad="small">
+                <Text size="small">Log</Text>
+              </Box>
+            </Link>
+
+            <Link to="/cheatsheets">
+              <Box pad="small">
+                <Text size="small">Cheatsheet</Text>
+              </Box>
+            </Link>
+            <Link to="/reading-notes">
+              <Box pad="small">
+                <Text size="small">Reading Notes</Text>
+              </Box>
+            </Link>
+          </Box>
           <Box height={"0.2em"} />
 
           <Box height={"1.2em"} />

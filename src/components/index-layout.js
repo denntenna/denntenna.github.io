@@ -39,21 +39,43 @@ const IndexLayout = ({ children }) => {
                 denntenna
               </Heading>
             </Link>
-            <Box flex={"grow"}>
+            {/* <Box flex={"grow"}>
               <Box direction={"row-responsive"} wrap={true} gap={"xsmall"}>
                 <TagBubble tag={"#online-harms"} />
                 <TagBubble tag={"#information-disorder"} />
                 <TagBubble tag={"#hypermedia"} />
                 <TagBubble tag={"#p2p"} />
               </Box>
-            </Box>
+            </Box> */}
             <Box gap={"small"}>
               <Link to={"/about"} color={"red"}>
                 <Text size={"small"}>about</Text>
               </Link>
             </Box>
           </Box>
+          <Box direction={"row-responsive"}>
+            <Link to="/portfolio">
+              <Box pad="small">
+                <Text size="small">Work</Text>
+              </Box>
+            </Link>
+            <Link to="/logs">
+              <Box pad="small">
+                <Text size="small">Log</Text>
+              </Box>
+            </Link>
 
+            <Link to="/cheatsheets">
+              <Box pad="small">
+                <Text size="small">Cheatsheet</Text>
+              </Box>
+            </Link>
+            <Link to="/reading-notes">
+              <Box pad="small">
+                <Text size="small">Reading Notes</Text>
+              </Box>
+            </Link>
+          </Box>
           <Box
             // margin={{ top: "large" }}
             ref={commentBox}
