@@ -11,6 +11,7 @@ export function LogImage({ children, caption }) {
       border
       pad={"small"}
       round={"xsmall"}
+      margin={{ bottom: "medium", right: "medium" }}
     >
       {children}
       <Text size={"xsmall"} weight={400}>

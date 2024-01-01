@@ -122,7 +122,11 @@ export const query = graphql`
         slug
         frontmatter {
           title
-          cover_image
+          cover_image {
+            childImageSharp {
+              gatsbyImageData(width: 800)
+            }
+          }
           date
           description
         }
