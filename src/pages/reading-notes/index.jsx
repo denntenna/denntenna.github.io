@@ -71,7 +71,9 @@ const ReadingNotes = ({ data }) => {
                       </Anchor>
                       <Text> {frontmatter.author}</Text>
                       <Text>{frontmatter.description}</Text>
-                      <Text size={"xsmall"}>{frontmatter.date}</Text>
+                      <Text size={"xsmall"}>
+                        {new Date(frontmatter.date).toDateString()}
+                      </Text>
                     </Box>
                   </Box>
                 );
