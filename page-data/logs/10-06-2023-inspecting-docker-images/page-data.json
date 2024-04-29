@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-logs-10-06-2023-inspecting-docker-images-mdx",
+    "path": "/logs/10-06-2023-inspecting-docker-images/",
+    "result": {"pageContext":{"frontmatter":{"title":"Profiling Docker Images","description":"Use dive to inspect docker images","date":"2023-06-10T00:00:00.000Z"}}},
+    "staticQueryHashes": []}
