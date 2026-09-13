@@ -51,7 +51,11 @@ function Page() {
           </Text>
           <Text>
             <Anchor href={"https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"} target={"blank"}>Tweat</Anchor>
-            {" (2016) : Live tweet every bite of your food."}
+            {" (2018) : Live tweet every bite of your food."}
+          </Text>
+          <Text>
+            <Anchor href={"https://www.youtube.com/watch?v=n0pU5o0kcrY"} target={"blank"}>Live Drawing</Anchor>
+            {" (2018) : Storytelling while drawing live on stage."}
           </Text>
           <Text>
             <Link to={"/standup-comedy-2014"}><Text weight="bold">Standup Comedy</Text></Link>
