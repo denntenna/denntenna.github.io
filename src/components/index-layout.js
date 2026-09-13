@@ -56,7 +56,7 @@ const IndexLayout = ({ children }) => {
           <Box direction={"row-responsive"}>
             <Link to="/portfolio">
               <Box pad="small">
-                <Text size="small">Work</Text>
+                <Text size="small">Portfolio</Text>
               </Box>
             </Link>
             <Link to="/logs">

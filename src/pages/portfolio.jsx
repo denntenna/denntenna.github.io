@@ -13,15 +13,32 @@ function Page() {
         </Heading>
 
         <Box direction={"column"}>
-          <Text>
-            <Anchor href={"https://tattle.co.in"} target={"blank"}>
-              {" "}
-              Tattle
-            </Anchor>
-            {
-              " (2020 onwards) : Tools and Dataset to understand and respond to misinformation in India."
-            }
-          </Text>
+          <Box>
+            <Text>
+              <Anchor href={"https://tattle.co.in"} target={"blank"}>
+                Tattle
+              </Anchor>
+              {" (2020 onwards) : Tools and Dataset to understand and respond to misinformation in India."}
+            </Text>
+            <Box margin={{ left: "medium", top: "xsmall" }} gap="xsmall">
+              <Text size="small">
+                <Anchor href={"https://tattle.co.in/products/ogbv/"} target={"blank"}>Uli</Anchor>
+                {" — Reduces effects of Online Gender-Based Violence with datasets and software for collective response."}
+              </Text>
+              <Text size="small">
+                <Anchor href={"https://tattle.co.in/products/viral-spiral/"} target={"blank"}>Viral Spiral</Anchor>
+                {" — Multiplayer card game about sharing news on the internet."}
+              </Text>
+              <Text size="small">
+                <Anchor href={"https://tattle.co.in/products/feluda/"} target={"blank"}>Feluda</Anchor>
+                {" — Analysis engine for multimodal and multilingual social media data."}
+              </Text>
+              <Text size="small">
+                <Anchor href={"https://tattle.co.in/products/dau/"} target={"blank"}>Deepfakes Analysis Unit</Anchor>
+                {" — Platform for triaging and authenticating manipulated media for fact-checkers and forensics experts."}
+              </Text>
+            </Box>
+          </Box>
           <Text>
             <Anchor
               href={"https://www.instagram.com/mouthwash.reels/reels/"}
@@ -33,16 +50,8 @@ function Page() {
             {" (2022) : Comedy Sketches on Instagram Reels"}
           </Text>
 
-          <Text>
-            <Anchor
-              href={"https://www.youtube.com/watch?v=yvUFGLoQxfI"}
-              target={"blank"}
-            >
-              {" "}
-              Dhish
-            </Anchor>
-            {" (2019) : Make music with intuitive percussive hand gestures."}
-          </Text>
+
+
           <Text>
             <Anchor
               href={
@@ -59,6 +68,16 @@ function Page() {
           </Text>
           <Text>
             <Anchor
+              href={"https://www.youtube.com/watch?v=yvUFGLoQxfI"}
+              target={"blank"}
+            >
+              {" "}
+              Dhish
+            </Anchor>
+            {" (2019) : Make music with intuitive percussive hand gestures."}
+          </Text>
+          <Text>
+            <Anchor
               href={
                 "https://www.vice.com/en/article/kbnbvn/this-invention-lets-your-pizza-tweet-every-time-you-take-a-bite"
               }
@@ -67,7 +86,14 @@ function Page() {
               {" "}
               Tweat
             </Anchor>
-            {" (2018) : Live Tweet every bite of your food"}
+            {" (2016) : Live Tweet every bite of your food"}
+          </Text>
+          <Text>
+            <Link to={"/standup-comedy-2014"}>
+              {" "}
+              Standup Comedy
+            </Link>
+            {" (2014) : Performing standup comedy in New Delhi's burgeoning comedy scene."}
           </Text>
         </Box>
       </Section>
@@ -76,33 +102,9 @@ function Page() {
           Work in Progress
         </Heading>
 
-        <Text>
-          <Anchor
-            href="https://tattle.co.in/products/viral-spiral/"
-            target="_blank"
-          >
-            Viral Spiral
-          </Anchor>
-          {", "}
-          <Anchor href="https:uli.tattle.co.in" target="_blank">
-            Uli
-          </Anchor>
-          {", "}
-          <Link to={"/generative-workout-mix"}>
-            <Text size="medium">Live Coding Workout Mix</Text>
-          </Link>
-          {", "}
-
-          <Anchor href={"https://puddle.vip"}>puddle</Anchor>
-
-          {" and "}
-          <Anchor href={"https://denntenna.github.io/oif"}>
-            Opinions In Formation
-          </Anchor>
-          {/* <Link to={`/chronospatial`}>
-        <Text>Chronospatial</Text>
-      </Link> */}
-        </Text>
+        <Link to={"/generative-workout-mix"}>
+          <Text size="medium">Live Coding Workout Mix</Text>
+        </Link>
       </Section>
     </IndexLayout>
   );
