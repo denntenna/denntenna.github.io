@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import Theme from "./theme";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { graphql } from "gatsby";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
@@ -111,27 +110,3 @@ const DefaultMDXLayout = ({ children, width, breadcrumb }) => {
 };
 
 export default DefaultMDXLayout;
-
-export const query = graphql`
-  query PostQuery {
-    allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/logs/" } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        slug
-        frontmatter {
-          title
-          cover_image {
-            childImageSharp {
-              gatsbyImageData(width: 800)
-            }
-          }
-          date
-          description
-        }
-        fileAbsolutePath
-      }
-    }
-  }
-`;

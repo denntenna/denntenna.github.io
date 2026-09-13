@@ -37,20 +37,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        defaultLayouts: {
-          default: require.resolve("./src/components/default-mdx-layout.js"),
-        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
-            },
-          },
-          {
-            resolve: `gatsby-remark-highlight-code`,
-            options: {
-              terminal: "carbon",
             },
           },
         ],

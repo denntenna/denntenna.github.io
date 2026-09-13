@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import DefaultMDXLayout from "../../components/default-mdx-layout";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Box, Heading, Text, Anchor, Image } from "grommet";
 
 const Feed = ({ data }) => {
@@ -34,13 +34,9 @@ const Feed = ({ data }) => {
             ? posts.map((post, ix) => {
                 const { frontmatter } = post;
                 const featuredImage = frontmatter.featuredimage;
-                // console.log({
-                //   title: frontmatter.title,
-                //   image: featuredImage.src,
-                // });
-                let featuredImageSrc = featuredImage
-                  ? featuredImage.src.childImageSharp.fluid.src
-                  : undefined;
+                const featuredImg = getImage(
+                  featuredImage?.src?.childImageSharp?.gatsbyImageData
+                );
 
                 return (
                   <Box
@@ -50,17 +46,9 @@ const Feed = ({ data }) => {
                     pad={"xsmall"}
                     background={ix % 2 === 0 ? "light-1" : "light-3"}
                   >
-                    {featuredImageSrc ? (
-                      <Box height={"xsmall"} width={"xsmall"} round>
-                        <Image
-                          fill
-                          fit="cover"
-                          src={
-                            post.frontmatter.featuredimage.src.childImageSharp
-                              .fluid.src
-                          }
-                          alt={"Thumbnail image"}
-                        />
+                    {featuredImg ? (
+                      <Box height={"xsmall"} width={"xsmall"} round overflow="hidden">
+                        <GatsbyImage image={featuredImg} alt={featuredImage?.alt || "Thumbnail"} />
                       </Box>
                     ) : null}
                     <Box>
@@ -86,18 +74,19 @@ const Feed = ({ data }) => {
 export const query = graphql`
   query MainFeedIndexQuery {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/feed/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/feed/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           description
           date
           url
         }
-        fileAbsolutePath
       }
     }
   }

@@ -8,3 +8,7 @@
 
 - [ ] Add better breadcrumbs
 - [ ] Add better inter page/content linking
+
+# Running Locally
+nvm use 18
+npm run develop

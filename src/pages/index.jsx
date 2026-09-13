@@ -151,86 +151,89 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query IndexQuery {
     logs: allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/logs/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/logs/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           description
         }
-        fileAbsolutePath
       }
     }
     cheatsheets: allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/cheatsheets/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/cheatsheets/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
         }
-        fileAbsolutePath
       }
     }
     readingNotes: allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/reading-notes/" } }
-      sort: { fields: frontmatter___date, order: ASC }
+      filter: { fields: { slug: { glob: "/reading-notes/*" } } }
+      sort: { frontmatter: { date: ASC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           description
         }
-        fileAbsolutePath
       }
     }
     oif: allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/oif/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/oif/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           description
         }
-        fileAbsolutePath
       }
     }
     feed: allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/feed/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/feed/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           description
           url
         }
-        fileAbsolutePath
       }
     }
-    all: allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/" } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
+    all: allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           description
         }
-        fileAbsolutePath
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import DefaultMDXLayout from "../../components/default-mdx-layout";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Box, Heading, Text, Anchor, Image } from "grommet";
 
 const ReadingNotes = ({ data }) => {
@@ -35,13 +35,9 @@ const ReadingNotes = ({ data }) => {
             ? posts.map((post, ix) => {
                 const { frontmatter } = post;
                 const featuredImage = frontmatter.featuredimage;
-                // console.log({
-                //   title: frontmatter.title,
-                //   image: featuredImage.src,
-                // });
-                let featuredImageSrc = featuredImage
-                  ? featuredImage.src.childImageSharp.fluid.src
-                  : undefined;
+                const featuredImg = getImage(
+                  featuredImage?.src?.childImageSharp?.gatsbyImageData
+                );
 
                 return (
                   <Box
@@ -51,20 +47,13 @@ const ReadingNotes = ({ data }) => {
                     pad={"small"}
                     background={ix % 2 === 0 ? "light-1" : "light-2"}
                   >
-                    {featuredImageSrc ? (
-                      <Box height={"xsmall"} width={"xsmall"} round>
-                        <Image
-                          fit="cover"
-                          src={
-                            post.frontmatter.featuredimage.src.childImageSharp
-                              .fluid.src
-                          }
-                          alt={"Thumbnail image"}
-                        />
+                    {featuredImg ? (
+                      <Box height={"xsmall"} width={"xsmall"} round overflow="hidden">
+                        <GatsbyImage image={featuredImg} alt={featuredImage?.alt || "Thumbnail"} />
                       </Box>
                     ) : null}
                     <Box>
-                      <Anchor href={`/${post.slug}`}>
+                      <Anchor href={post.fields.slug}>
                         <Heading level={4} margin={"none"}>
                           {frontmatter.title}
                         </Heading>
@@ -91,27 +80,26 @@ const ReadingNotes = ({ data }) => {
 export const query = graphql`
   query RNFeedIndexQuery {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/reading-notes/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/reading-notes/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           author
           featuredimage {
             src {
               childImageSharp {
-                fluid(maxWidth: 1024) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 100)
               }
             }
             alt
           }
           date
         }
-        fileAbsolutePath
       }
     }
   }

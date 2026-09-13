@@ -86,7 +86,7 @@ const Feed = ({ data }) => {
                   <Preview post={post} />
                   <Box pad={"medium"}>
                     <Text textAlign="left">
-                      <Link to={`/${post.slug}`}>
+                      <Link to={post.fields.slug}>
                         <Text weight={900}> {post.frontmatter.title}</Text>
                       </Link>
                       <Text>{` - `}</Text>
@@ -144,11 +144,13 @@ const Feed = ({ data }) => {
 export const query = graphql`
   query FeedIndexQuery {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/logs/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/logs/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           cover_image {
@@ -159,7 +161,6 @@ export const query = graphql`
           date
           description
         }
-        fileAbsolutePath
       }
     }
   }

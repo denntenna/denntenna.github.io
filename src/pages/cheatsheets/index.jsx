@@ -29,7 +29,7 @@ const Feed = ({ data }) => {
         {posts
           ? posts.map((post, ix) => (
               <Box key={ix} direction={"row-responsive"} gap={"xsmall"}>
-                <Link to={`/${post.slug}`}>
+                <Link to={post.fields.slug}>
                   <Text weight={600}> {post.frontmatter.title}</Text>
                 </Link>
                 <Text>{post.frontmatter.description}</Text>
@@ -44,17 +44,18 @@ const Feed = ({ data }) => {
 export const query = graphql`
   query CheatsheetIndexQuery {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/.*/src/pages/cheatsheets/" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { glob: "/cheatsheets/*" } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           description
         }
-        fileAbsolutePath
       }
     }
   }
